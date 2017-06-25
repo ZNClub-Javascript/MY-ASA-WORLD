@@ -12,6 +12,6 @@ public interface ScheduleDAO extends MongoRepository<Schedule, String> {
 
     
     public List<Schedule> findAll();
-    public void save(Schedule schedule);
+    public Schedule insert(Schedule schedule);
 
 }
