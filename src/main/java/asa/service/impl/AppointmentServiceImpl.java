@@ -3,12 +3,12 @@ package asa.service.impl;
 import asa.service.ConstantsInterface;
 import asa.service.AppointmentService;
 import asa.dao.ScheduleDAO ;
-import asa.model.Appointment;
+import asa.bean.Appointment;
 import asa.model.Schedule;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.BeanUtils;
-
+import java.util.*;
 
 
 @Service("appointmentService")
@@ -17,13 +17,14 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
 	@Autowired
 	private ScheduleDAO scheduleDAO;		
 		
-/*    public List<Appointment> get(){
-    
+    public List<Appointment> get(){
+	return new List<Appointment>();
     }
-*/
+
     
 	public boolean add(Appointment appointment){
-      BeanUtils.copyProperties(Appointment,Schedule);
+	
+      BeanUtils.copyProperties(appointment);
       try{
         scheduleDAO.save(Schedule);
       }
