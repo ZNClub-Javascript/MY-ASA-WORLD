@@ -8,7 +8,7 @@ function($scope,$http){
 	
 	$scope.authenticate=function(){
 		
-		console.log($scope.loginObj.username+" - "+$scope.loginObj.password);
+		//console.log($scope.loginObj.username+" - "+$scope.loginObj.password);
 		
 		/* $http.get('/login').
         then(function(response) {
