@@ -18,7 +18,7 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
 	private ScheduleDAO scheduleDAO;		
 		
     public List<Appointment> get(){
-	return new List<Appointment>();
+	return new ArrayList<Appointment>();
     }
 
     
