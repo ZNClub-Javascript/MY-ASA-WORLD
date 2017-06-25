@@ -15,16 +15,14 @@ import org.springframework.beans.BeanUtils;
 public class AppointmentServiceImpl implements ConstantsInterface,AppointmentService{
 	
 	@Autowired
-	private ScheduleDAO scheduleDAO;
-	
-	public String authenticate(String username, String password){
+	private ScheduleDAO scheduleDAO;		
 		
 /*    public List<Appointment> get(){
     
     }
 */
     
-	  public boolean add(Appointment appointment){
+	public boolean add(Appointment appointment){
       BeanUtils.copyProperties(Appointment,Schedule);
       try{
         scheduleDAO.save(Schedule);
