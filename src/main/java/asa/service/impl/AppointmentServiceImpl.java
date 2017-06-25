@@ -19,9 +19,10 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
 	
 	public String authenticate(String username, String password){
 		
-    public List<Appointment> get(){
+/*    public List<Appointment> get(){
     
     }
+*/
     
 	  public boolean add(Appointment appointment){
       BeanUtils.copyProperties(Appointment,Schedule);
