@@ -23,10 +23,11 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
 
     
 	public boolean add(Appointment appointment){
-	
-      BeanUtils.copyProperties(appointment);
+	Schedule schedule= new Schedule();
+      BeanUtils.copyProperties(appointment,schedule);
+	System.out.println(appointment.getDate()+" - "+schedule.getDate());
       try{
-        scheduleDAO.save(Schedule);
+        scheduleDAO.save(schedule);
       }
       
       //failure
