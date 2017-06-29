@@ -24,3 +24,35 @@ function alertLogin(scope){
 	}
 }
 
+
+/*
+function showTimings(){
+	// CREATE FILTER AND RETURN Array
+	
+	// PASS ARRAY TO BELOW Function
+	if(timings==null)
+	{
+		var timings = createDropDownList("demo", "time-list");
+	}
+	else{
+		
+	}
+}
+
+function getDropDownList(id, name) {
+    var combo = $("<select></select>").attr("id", id).attr("name", name);
+}
+
+function createDropDownList(times){
+
+
+    
+	combo.append("<option>" + "7 OO PM" + "</option>");
+    
+
+    //return combo;
+    // OR
+    $("#mass-timings").append(combo);
+}
+*/
+

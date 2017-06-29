@@ -4,6 +4,7 @@ app.controller('apptCtrl',
 function($scope,$filter){		
 		
 	$scope.types=['Regular','Special'];
+	
 	$scope.progress='Adding';
 	$scope.times=false;
 	
@@ -14,6 +15,26 @@ function($scope,$filter){
 		$scope.apptName='';
 		success("addName");
 	}
+	
+	$scope.timings=function(){
+		
+		success($scope.apptTime);
+		
+		if($scope.apptTime==''){
+			$scope.massTime.show=false;
+		}
+		else{
+			$scope.massTime.show=true;
+			
+			$scope.massTime.timeList=['a','b','c','ad','be','bcd'];
+		}
+	}
+	
+	$scope.updateApptTime = function(){
+		success($scope.massTime.selectedTime+" vs the "+$scope.apptTime);
+		$scope.apptTime = $scope.massTime.selectedTime;
+	}
+	
 	
 	$scope.removeName=function(name){
 		
