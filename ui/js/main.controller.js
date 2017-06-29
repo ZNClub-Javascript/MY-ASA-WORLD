@@ -6,7 +6,7 @@ function($scope){
 	//$scope.sessionRole=-1;
 	
 	//global variables
-	$scope.version='1.0';
+	$scope.version='1.3';
 	$scope.mode='testing';
 	$scope.loginShow=$scope.navShow=$scope.about=$scope.navigation=$scope.addAppt=false;
 	
@@ -22,13 +22,17 @@ function($scope){
 		
 	}
 	$scope.clickNav=function(){
-		$scope.navShow=true;
-		$scope.loginShow=false;
+
+		if(alertLogin($scope)){
+			$scope.navShow=true;
+			$scope.loginShow=false;
+		}
 	}
 	
 	$scope.clickAddAppt= function(){
 		$scope.addAppt=true;		
 		$scope.loginShow=false;
-	} 
+	}
+
 }
 );
