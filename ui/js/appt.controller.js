@@ -3,7 +3,7 @@
 app.controller('apptCtrl',
 function($scope,$filter){		
 		
-	$scope.names=[];
+	$scope.types=['Regular','Special'];
 	$scope.progress='Adding';
 	$scope.times=false;
 	
