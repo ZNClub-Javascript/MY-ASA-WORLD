@@ -24,9 +24,25 @@ function($scope,$filter){
 			$scope.massTime.show=false;
 		}
 		else{
-			$scope.massTime.show=true;
 			
-			$scope.massTime.timeList=['a','b','c','ad','be','bcd'];
+			$scope.massTime.show=true;
+			if($scope.apptType==REGULAR){
+				
+				$scope.massTime.timeList=['06:00 AM','07:00 AM','08:00 AM','06:15 PM'];
+				$scope.massTime.toast='Select from below options:';
+			}
+			else{
+				$scope.massTime.timeList=[];
+				if($scope.massTime.timeList.length==0)
+				{	$scope.massTime.toast='No options available below';
+				}
+				else
+				{
+					$scope.massTime.toast='Select from below options:';
+				}
+				
+				
+			}
 		}
 	}
 	

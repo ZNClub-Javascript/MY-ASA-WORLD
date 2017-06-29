@@ -11,7 +11,7 @@ function($scope){
 	$scope.loginShow=$scope.navShow=$scope.about=$scope.navigation=$scope.addAppt=$scope.showTimingList=false;
 	
 	$scope.loginObj={'status':true,'username':'','password':''};
-	$scope.massTime={'show':false,'timeList':[],'selectedTime':''};
+	$scope.massTime={'show':false,'timeList':[],'selectedTime':'',toast:''};
 	
 	$scope.clickLogin=function(){
 		

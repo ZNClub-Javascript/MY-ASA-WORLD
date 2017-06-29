@@ -294,7 +294,7 @@
                             </div>	
 							
 							<div class="form-group col-xs-12 floating-label-form-group controls" ng-if="massTime.show">
-                                <p> Select from below : </p>
+                                <p> {{massTime.toast}} </p>
 								<select  class="form-control" ng-change="updateApptTime()" ng-model="massTime.selectedTime" ng-options="x for x in massTime.timeList | filter : apptTime"></select>
 								
 							</div>
