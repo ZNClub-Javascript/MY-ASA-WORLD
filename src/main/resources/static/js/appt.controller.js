@@ -88,7 +88,8 @@ function($scope,$filter){
 			}
 		
 		
-		}
+		});
+		
 		//true then set auth to true
 		if(status==true){		
 		
