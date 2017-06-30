@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.*;
 
 @RestController
-@RequestMapping("/appt")
+@RequestMapping("/appointment")
 public class AppointmentController {
 
 	@Autowired
