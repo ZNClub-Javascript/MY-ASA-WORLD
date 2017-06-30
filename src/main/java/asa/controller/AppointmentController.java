@@ -15,18 +15,18 @@ public class AppointmentController {
 	private AppointmentService appointmentService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody Map<String,String> view(){
+	public @ResponseBody Map<String,Object> view(){
 		Map<String,String> map=new HashMap<>();
 		System.out.println("Inside AppointmentController");
 		List<Appointment> list= appointmentService.get();
 		System.out.println("Length :"+list.size());
 		
 		if(list.size()==0){
-			map.put("result","success");
+			map.put("result",new String("success"));
 			map.put("list",list);
 		}
 		else{
-			map.put("result","failed");
+			map.put("result",new String("failed"));
 		}
 			
 		return map;
