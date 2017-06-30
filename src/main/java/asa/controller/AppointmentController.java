@@ -19,7 +19,7 @@ public class AppointmentController {
 		Map<String,String> map=new HashMap<>();
 		System.out.println("Inside AppointmentController");
 		List<Appointment> list= appointmentService.get();
-		System.out.println("Length :"list.size());
+		System.out.println("Length :"+list.size());
 		
 		if(list.size()==0){
 			map.put("result","success");
