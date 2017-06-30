@@ -18,7 +18,15 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
 	private ScheduleDAO scheduleDAO;		
 		
     public List<Appointment> get(){
-	return new ArrayList<Appointment>();
+	List<Appointment> list = new ArrayList<>();
+	List<Schedule> queried = scheduleDAO.findAll();
+	queried.forEach(query->{
+		Appointment appointment = new Appointment();
+		BeanUtils.copyProperties(query,appointment);
+		list.add(appointment);
+	});
+	    
+	  return list;
     }
 
     
