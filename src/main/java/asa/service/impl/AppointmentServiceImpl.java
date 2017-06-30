@@ -26,16 +26,12 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
 	Schedule schedule= new Schedule();
       BeanUtils.copyProperties(appointment,schedule);
 	System.out.println(appointment.getDate()+" - "+schedule.getDate());
-      try{
-        scheduleDAO.save(schedule);
-      }
-      
-      //failure
-      catch(Exception e){
-        System.out.println("add Appointment failed due to:\n"+e);
-        return false;
-      }
-      
+     
+       if(scheduleDAO.insert(schedule)==null){
+       		System.out.println("add Appointment failed due to:\n"+e);
+        	return false;
+       }
+		
       //success
       return true;
     }
