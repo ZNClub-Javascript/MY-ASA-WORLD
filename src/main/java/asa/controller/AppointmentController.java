@@ -15,12 +15,21 @@ public class AppointmentController {
 	private AppointmentService appointmentService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public Collection<Object> view(){
+	public @ResponseBody Map<String,String> view(){
+		Map<String,String> map=new HashMap<>();
 		System.out.println("Inside AppointmentController");
-		Collection<Object> list= appointmentService.get();
+		List<Appointment> list= appointmentService.get();
 		System.out.println("Length :"list.size());
-		return list;
 		
+		if(list.size()==0){
+			map.put("result","success");
+			map.put("list",list);
+		}
+		else{
+			map.put("result","failed");
+		}
+			
+		return map;
 	}
 	
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
