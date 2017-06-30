@@ -28,7 +28,7 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
 	System.out.println(appointment.getDate()+" - "+schedule.getDate());
      
        if(scheduleDAO.insert(schedule)==null){
-       		System.out.println("add Appointment failed due to:\n"+e);
+       		System.out.println("add Appointment failed");
         	return false;
        }
 		
