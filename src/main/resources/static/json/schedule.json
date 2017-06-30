@@ -1,0 +1,112 @@
+[{
+        "_id" : ObjectId("595605b24cedfd000129841f"),
+        "_class" : "asa.model.Schedule",
+        "names" : [
+                "Holi",
+                "Boy"
+        ],
+        "date" : "2017-06-29T18:30:00.000Z",
+        "time" : "06:00 AM",
+        "sign" : "ZNevzz",
+        "type" : ""
+},
+{
+        "_id" : ObjectId("59560f0b4cedfd0001298421"),
+        "_class" : "asa.model.Schedule",
+        "names" : [ ],
+        "date" : "2017-11-26T18:30:00.000Z",
+        "sign" : "tre"
+},
+{
+        "_id" : ObjectId("59560f4f4cedfd0001e0051a"),
+        "_class" : "asa.model.Schedule",
+        "names" : [ ],
+        "date" : "2017-11-26T18:30:00.000Z",
+        "sign" : "tre"
+},
+{
+        "_id" : ObjectId("59560f8f4cedfd0001e0051b"),
+        "_class" : "asa.model.Schedule",
+        "names" : [ ],
+        "date" : "2017-06-29T18:30:00.000Z",
+        "sign" : "De"
+},
+{
+        "_id" : ObjectId("59560f954cedfd0001298422"),
+        "_class" : "asa.model.Schedule",
+        "names" : [ ],
+        "date" : "2017-06-29T18:30:00.000Z",
+        "sign" : "De"
+},
+{
+        "_id" : ObjectId("59560f964cedfd0001e0051c"),
+        "_class" : "asa.model.Schedule",
+        "names" : [ ],
+        "date" : "2017-06-29T18:30:00.000Z",
+        "sign" : "De"
+},
+{
+        "_id" : ObjectId("59560f964cedfd0001298423"),
+        "_class" : "asa.model.Schedule",
+        "names" : [ ],
+        "date" : "2017-06-29T18:30:00.000Z",
+        "sign" : "De"
+},
+{
+        "_id" : ObjectId("595612274cedfd0001298424"),
+        "_class" : "asa.model.Schedule",
+        "names" : [ ]
+},
+{
+        "_id" : ObjectId("5956124f4cedfd0001298425"),
+        "_class" : "asa.model.Schedule",
+        "names" : [ ],
+        "date" : "2017-11-25T18:30:00.000Z"
+},
+{
+        "_id" : ObjectId("595614014cedfd0001298427"),
+        "_class" : "asa.model.Schedule",
+        "names" : [
+                "adding",
+                "data",
+                "to",
+                "schedule"
+        ],
+        "date" : "2017-06-29T18:30:00.000Z",
+        "time" : "02:32 PM",
+        "sign" : "ZNevzz"
+},
+{
+        "_id" : ObjectId("59561b914cedfd0001152916"),
+        "_class" : "asa.model.Schedule",
+        "names" : [
+                "Drew",
+                "and",
+                "Joffrey",
+                "Megan"
+        ],
+        "date" : "30/06/17",
+        "time" : "07:00 AM",
+        "sign" : "xew",
+        "type" : "Regular"
+},
+{
+        "_id" : ObjectId("59561d804cedfd00017e807e"),
+        "_class" : "asa.model.Schedule",
+        "names" : [ ],
+        "date" : "02/10/17",
+        "time" : "06:00 AM",
+        "type" : "Regular"
+},
+{
+        "_id" : ObjectId("595628e54cedfd00012937ea"),
+        "_class" : "asa.model.Schedule",
+        "names" : [
+                "drew",
+                "keagan"
+        ],
+        "date" : "02/07/17",
+        "time" : "07:00 AM",
+        "sign" : "Nevil",
+        "type" : "Regular"
+}]
