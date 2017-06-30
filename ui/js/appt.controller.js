@@ -1,5 +1,8 @@
 // Appointment Controller : handles appt ops
 
+
+'use strict';
+
 app.controller('apptCtrl',
 function($scope,$filter){		
 		
@@ -70,9 +73,22 @@ function($scope,$filter){
 		var fmtDate=$filter('date')($scope.apptDate,"dd/MM/yy");
 		success(fmtDate);
 		
+		$http.post('/appointment',  
+		{ 
+		'sign' : $scope.apptSign,
+		'date' : $scope.apptDate,
+		'type' : $scope.apptType,
+		'time' : $scope.apptTime,
+		'names' : $scope.names				
+		}).
+		then(function(response){
 		
-		var status=true;
+			if(response.data['result']=='success'){
+				var status=true;
+			}
 		
+		
+		}
 		//true then set auth to true
 		if(status==true){		
 		
@@ -89,10 +105,13 @@ function($scope,$filter){
 	
 	$scope.reset = function(){
 		
+			$scope.progress='Adding';
 			$scope.names=[];
 			$scope.apptDate='';
 			$scope.apptTime='';
-			$scope.apptType='';
+			$scope.apptType='';			
+			$scope.massTime.selectedTime='';
+			$scope.massTime.show=false;
 	}
 		
 }

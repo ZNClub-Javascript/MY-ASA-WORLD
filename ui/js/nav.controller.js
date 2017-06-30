@@ -1,5 +1,7 @@
 // Navigation controller : adds dynamic content to navigation main headings & redirection within app
 
+'use strict';
+
 app.controller('navCtrl',
 function($scope){
  	

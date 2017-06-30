@@ -1,5 +1,7 @@
 // Main Controller : has widest scope compared to other controllers
 
+'use strict';
+
 app.controller('mainCtrl',
 function($scope){
 	

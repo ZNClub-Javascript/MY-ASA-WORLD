@@ -1,3 +1,7 @@
+// main js helper
+
+'use strict';
+
 console.log("Welcome to main.js");
 
 
@@ -12,9 +16,10 @@ function alertLogin(scope){
 	
 	//for test env only
 	
-	///*
+	/*
 	return true;
-	//*/
+	*/
+	
 	if(scope.loginObj.status){
 		alert("Please login using your username & password");		
 		return false;
