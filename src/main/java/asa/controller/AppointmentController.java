@@ -16,7 +16,7 @@ public class AppointmentController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody Map<String,Object> view(){
-		Map<String,String> map=new HashMap<>();
+		Map<String,Object> map=new HashMap<>();
 		System.out.println("Inside AppointmentController");
 		List<Appointment> list= appointmentService.get();
 		System.out.println("Length :"+list.size());
