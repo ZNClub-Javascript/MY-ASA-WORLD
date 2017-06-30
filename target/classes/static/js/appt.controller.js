@@ -82,7 +82,7 @@ function($scope,$filter,$http){
 		'time' : $scope.apptTime,
 		'names' : $scope.names				
 		}).
-		then(function(response){
+		then(function(response,status){
 			console.log(response.data);
 			if(response.data['result']=='success'){
 				status=true;
@@ -90,6 +90,7 @@ function($scope,$filter,$http){
 		
 		
 		});
+		
 		
 		//true then set auth to true
 		if(status==true){		
