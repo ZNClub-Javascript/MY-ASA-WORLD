@@ -82,12 +82,20 @@ function($scope,$filter,$http){
 		'time' : $scope.apptTime,
 		'names' : $scope.names				
 		}).
-		then(function(response){
+		success(function(response,status){
 			console.log(response.data);
 			if(response.data['result']=='success'){
 				status=true;
 			}
 		
+		
+		}).
+		error(function(response,status){
+			console.log(response.data);
+			if(response.data['result']=='failed'){
+				status=false;
+			}
+			error(response.status);
 		
 		});
 		
