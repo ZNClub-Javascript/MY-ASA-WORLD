@@ -76,13 +76,13 @@ function($scope,$filter,$http){
 		$http.post('/appointment',  
 		{ 
 		'sign' : $scope.apptSign,
-		'date' : $scope.apptDate,
+		'date' : fmtDate,
 		'type' : $scope.apptType,
 		'time' : $scope.apptTime,
 		'names' : $scope.names				
 		}).
 		then(function(response){
-		
+			console.log(response.data);
 			if(response.data['result']=='success'){
 				var status=true;
 			}
@@ -101,6 +101,7 @@ function($scope,$filter,$http){
 		}
 		else{
 			error("appt");
+			$scope.progress='Something went wrong! Please try again to Add'
 		}
 	}
 	
