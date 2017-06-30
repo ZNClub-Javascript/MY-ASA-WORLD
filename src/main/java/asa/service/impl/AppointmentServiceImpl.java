@@ -18,7 +18,15 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
 	private ScheduleDAO scheduleDAO;		
 		
     public List<Appointment> get(){
-	return new ArrayList<Appointment>();
+	List<Appointment> list = new ArrayList<>();
+	List<Schedule> queried = scheduleDAO.findAll();
+	queried.forEach(query->{
+		Appointment appointment = new Appointment();
+		BeanUtils.copyProperties(query,appointment);
+		list.add(appointment);
+	});
+	    
+	  return list;
     }
 
     
@@ -26,16 +34,12 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
 	Schedule schedule= new Schedule();
       BeanUtils.copyProperties(appointment,schedule);
 	System.out.println(appointment.getDate()+" - "+schedule.getDate());
-      try{
-        scheduleDAO.save(schedule);
-      }
-      
-      //failure
-      catch(Exception e){
-        System.out.println("add Appointment failed due to:\n"+e);
-        return false;
-      }
-      
+     
+       if(scheduleDAO.insert(schedule)==null){
+       		System.out.println("add Appointment failed");
+        	return false;
+       }
+		
       //success
       return true;
     }
