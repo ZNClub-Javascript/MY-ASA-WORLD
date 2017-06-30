@@ -4,7 +4,7 @@
 'use strict';
 
 app.controller('apptCtrl',
-function($scope,$filter){		
+function($scope,$filter,$http){		
 		
 	$scope.types=['Regular','Special'];
 	$scope.names=[];
