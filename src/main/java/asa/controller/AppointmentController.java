@@ -31,7 +31,7 @@ public class AppointmentController {
 		}
 		  return map;
     }
-	
+	/*
 	@RequestMapping(value="/test",method = RequestMethod.GET)
     public @ResponseBody Map<String,String> addTest(){
         	System.out.println("Inside AppointmentController POST TEST");
@@ -45,6 +45,7 @@ public class AppointmentController {
 		}
 		  return map;
     }
+	*/
 	
 	
 	
