@@ -71,8 +71,9 @@ function($scope,$filter){
 		//check username and password
 		
 		var fmtDate=$filter('date')($scope.apptDate,"dd/MM/yy");
+		var status=false;
 		success(fmtDate);
-		
+		/*
 		$http.post('/appointment',  
 		{ 
 		'sign' : $scope.apptSign,
@@ -88,8 +89,10 @@ function($scope,$filter){
 			}
 		
 		
-		}
+		});
+		*/
 		//true then set auth to true
+		status=true;
 		if(status==true){		
 		
 			

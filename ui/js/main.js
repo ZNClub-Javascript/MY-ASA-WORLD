@@ -16,9 +16,9 @@ function alertLogin(scope){
 	
 	//for test env only
 	
-	/*
+	//*
 	return true;
-	*/
+	//*/
 	
 	if(scope.loginObj.status){
 		alert("Please login using your username & password");		
