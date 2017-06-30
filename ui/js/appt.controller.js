@@ -4,7 +4,7 @@ app.controller('apptCtrl',
 function($scope,$filter){		
 		
 	$scope.types=['Regular','Special'];
-	
+	$scope.names=[];
 	$scope.progress='Adding';
 	$scope.times=false;
 	
@@ -74,15 +74,25 @@ function($scope,$filter){
 		var status=true;
 		
 		//true then set auth to true
-		if(status==true){
+		if(status==true){		
+		
 			
-			$scope.names=[];
+			//debug
 			success("appt");
 			$scope.progress='Added';
+			
 		}
 		else{
 			error("appt");
 		}
+	}
+	
+	$scope.reset = function(){
+		
+			$scope.names=[];
+			$scope.apptDate='';
+			$scope.apptTime='';
+			$scope.apptType='';
 	}
 		
 }
