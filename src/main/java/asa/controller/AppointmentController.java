@@ -15,8 +15,12 @@ public class AppointmentController {
 	private AppointmentService appointmentService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public void view(){
+	public Collection<Object> view(){
 		System.out.println("Inside AppointmentController");
+		Collection<Object> list= appointmentService.get();
+		System.out.println("Length :"list.size());
+		return list;
+		
 	}
 	
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
