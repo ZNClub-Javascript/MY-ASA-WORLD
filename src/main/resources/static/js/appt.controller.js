@@ -71,6 +71,7 @@ function($scope,$filter,$http){
 		//check username and password
 		
 		var fmtDate=$filter('date')($scope.apptDate,"dd/MM/yy");
+		var status=false;
 		success(fmtDate);
 		
 		$http.post('/appointment',  
@@ -84,7 +85,7 @@ function($scope,$filter,$http){
 		then(function(response){
 			console.log(response.data);
 			if(response.data['result']=='success'){
-				var status=true;
+				status=true;
 			}
 		
 		
