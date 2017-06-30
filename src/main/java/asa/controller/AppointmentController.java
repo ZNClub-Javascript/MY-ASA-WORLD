@@ -21,7 +21,7 @@ public class AppointmentController {
 		List<Appointment> list= appointmentService.get();
 		System.out.println("Length :"+list.size());
 		
-		if(list.size()==0){
+		if(list.size()!=0){
 			map.put("result",new String("success"));
 			map.put("list",list);
 		}
