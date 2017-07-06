@@ -125,3 +125,21 @@ function($scope,$filter,$http){
 	
 }
 );
+
+
+
+
+
+app.controller('evalApptCtrl',
+function($scope,$filter,$http){
+ 	
+	$scope.clickDirectEvalAppt = function(){
+		success("direct");
+	}
+	
+	$scope.clickAppEvalAppt = function(){
+		success("app");
+	}
+
+}
+); 

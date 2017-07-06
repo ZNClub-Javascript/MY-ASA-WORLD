@@ -6,17 +6,20 @@ app.controller('navCtrl',
 function($scope,$rootScope){
  	
 	$scope.clickOptions= function(op,name){
-		success("clickOptions");
-		success(op);
-		success(name);
 		
 		if(op=='add' && name=='Appointment'){
 			
-			$rootScope.addAppt=true;
+			$rootScope.addAppt=!$rootScope.addAppt;
+			
+			$rootScope.evalAppt=false;
 			$rootScope.loginShow=false;
+		}
+		else if(op=='evaluate' && name=='Appointment'){
 			
+			$rootScope.evalAppt=!$rootScope.evalAppt;
 			
-			
+			$rootScope.addAppt=false;
+			$rootScope.loginShow=false;
 			
 		}
 		
@@ -24,7 +27,7 @@ function($scope,$rootScope){
 	
 	$scope.clickAppt= function(){
 		$scope.navigation=true;
-		$scope.option = {'name':'Appointment','options':['add','eval']};
+		$scope.option = {'name':'Appointment','options':['add','evaluate']};
 	} 
 	
 	$scope.clickAttd= function(){

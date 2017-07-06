@@ -10,7 +10,7 @@ function($scope, $rootScope){
 	//global variables
 	$scope.version='2.3';
 	$scope.mode='testing';
-	$rootScope.loginShow=$rootScope.addAppt=false;
+	$rootScope.loginShow=$rootScope.addAppt=$rootScope.evalAppt=$rootScope.addAttd=false;
 	$scope.navShow=$scope.about=$scope.navigation=$scope.showTimingList=false;
 	
 	$scope.loginObj={'status':true,'username':'','password':''};
