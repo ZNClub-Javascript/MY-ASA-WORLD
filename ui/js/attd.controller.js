@@ -65,9 +65,12 @@ function($scope,$filter,$http){
 				}
 				
 			}
-		}
+		}				
+	}
+	
+	$scope.addAttendance = function(){
 		
-		
+		success("POST success");
 	}
 }
 );
