@@ -12,14 +12,30 @@ function($scope,$rootScope){
 			$rootScope.addAppt=!$rootScope.addAppt;
 			
 			$rootScope.evalAppt=false;
-			$rootScope.loginShow=false;
+			
 		}
 		else if(op=='evaluate' && name=='Appointment'){
 			
 			$rootScope.evalAppt=!$rootScope.evalAppt;
 			
 			$rootScope.addAppt=false;
-			$rootScope.loginShow=false;
+			
+			
+		}
+		
+		if(op=='add' && name=='Attendance'){
+			
+			$rootScope.addAttd=!$rootScope.addAttd;
+			
+			$rootScope.viewAttd=false;
+			
+		}
+		else if(op=='view' && name=='Attendance'){
+			
+			$rootScope.viewAttd=!$rootScope.viewAttd;
+			
+			$rootScope.addAttd=false;
+			
 			
 		}
 		

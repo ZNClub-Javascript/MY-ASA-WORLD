@@ -3,7 +3,7 @@
 
 'use strict';
 
-app.controller('apptCtrl',
+app.controller('addApptCtrl',
 function($scope,$filter,$http){		
 		
 	$scope.types=['Regular','Special'];

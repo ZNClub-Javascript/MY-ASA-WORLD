@@ -263,7 +263,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     
                     <form id="apptForm" novalidate>
-                        <div class="row control-group" ng-controller="apptCtrl">
+                        <div class="row control-group" ng-controller="addApptCtrl">
                             
 							<div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="sign">Sign</label>
@@ -376,18 +376,22 @@
                 </div>
                 </div>
             </div>
-            <div class="row">               
-                <div class="col-sm-4 portfolio-item" >
-                    <a href="" class="btn btn-lg" ng-click="clickDirectEvalAppt()">
-                        <i class="fa fa-bolt"></i> Direct Evaluation
-                    </a>					
-                </div>	
-				<div class="col-sm-4 portfolio-item">
-                    <a href="" class="btn btn-lg" ng-click="clickAppEvalAppt()">
-                        <i class="fa fa-table"></i> Select from App
-                    </a>					
-                </div>	
+            
+        </div>
+    </section>
+	
+	
+	<section id="viewAttd" ng-if="viewAttd">
+        <div class="container" ng-controller="viewAttdCtrl">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="col-lg-12 text-center">
+                    <h2>View Attendance</h2>
+                    <hr class="star-primary">
+                </div>
+                </div>
             </div>
+            
         </div>
     </section>
 	
