@@ -4,7 +4,7 @@
 'use strict';
 
 app.controller('apptCtrl',
-function($scope,$filter){		
+function($scope,$filter,$http){		
 		
 	$scope.types=['Regular','Special'];
 	$scope.names=[];
@@ -73,26 +73,26 @@ function($scope,$filter){
 		var fmtDate=$filter('date')($scope.apptDate,"dd/MM/yy");
 		var status=false;
 		success(fmtDate);
-		/*
+		
 		$http.post('/appointment',  
 		{ 
 		'sign' : $scope.apptSign,
-		'date' : $scope.apptDate,
+		'date' : fmtDate,
 		'type' : $scope.apptType,
 		'time' : $scope.apptTime,
 		'names' : $scope.names				
 		}).
-		then(function(response){
-		
+		then(function(response,status){
+			console.log(response.data);
 			if(response.data['result']=='success'){
-				var status=true;
+				status=true;
 			}
 		
 		
 		});
-		*/
+		
+		
 		//true then set auth to true
-		status=true;
 		if(status==true){		
 		
 			
@@ -103,6 +103,7 @@ function($scope,$filter){
 		}
 		else{
 			error("appt");
+			$scope.progress='Something went wrong! Please try again to Add'
 		}
 	}
 	
