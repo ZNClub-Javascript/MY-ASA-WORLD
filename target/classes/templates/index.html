@@ -29,6 +29,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-aria.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-messages.min.js"></script> 
+	
+	
+	
     <script src="js/main.js"></script>
 	<script src="js/main.controller.js"></script>
 	<script src="js/login.controller.js"></script>
@@ -158,7 +161,7 @@
         </div>
     </section>
 	
-    <!-- Portfolio Grid Section -->
+    <!-- Activities Section -->
     <section id="portfolio" ng-controller="navCtrl" ng-if="navShow">
         <div class="container">
             <div class="row">
@@ -201,7 +204,7 @@
                             </div>
                         </div>				
 						
-                        <a href="#controls" class="portfolio-link" data-toggle="" ng-click="clickAppt()">
+                        <a href="#controls" class="portfolio-link" data-toggle="" ng-click="clickAttd()">
 								
                         <!-- <img src="img/portfolio/cabin.png" class="img-responsive" alt="Cabin"> -->
 						<div class="col-lg-12 text-center">
@@ -260,9 +263,11 @@
                             
 							<div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="sign">Sign</label>
-                                <input ng-model="apptSign" type="text" class="form-control" placeholder="Name of the Assignee" name="sign" required >
+                                <input ng-model="apptSign" type="text" class="form-control" placeholder="Name of the Assignee" name="sign"  >
                                 <p class="help-block text-danger"></p>
                             </div>
+							
+							
 							<div class="form-group col-xs-12 floating-label-form-group controls">
                                 
 								
@@ -278,16 +283,26 @@
                             </div>
 							
 							
+							<div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="type">Type</label>
+								<select  class="form-control col-xs-12" ng-model="apptType" ng-options="x for x in types"></select>
+							</div>
 							
 							<div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="time">Time</label>
-                                <input ng-model="apptTime" type="text" class="form-control" placeholder="Time of Mass as HH:MM AM/PM" name="time" required >                                
-                            </div>							
+                                <input ng-model="apptTime" ng-change="timings()" type="text" class="form-control" placeholder="Time of Mass as HH:MM AM/PM" name="time" >                                
+                            </div>	
 							
+							<div class="form-group col-xs-12 floating-label-form-group controls" ng-if="massTime.show">
+                                <p> {{massTime.toast}} </p>
+								<select  class="form-control col-xs-12" ng-change="updateApptTime()" ng-model="massTime.selectedTime" ng-options="x for x in massTime.timeList | filter : apptTime"></select>
+								
+							</div>
+												
 							
 							<div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="name">Names</label>
-                                <input ng-model="apptName" type="text" class="form-control" placeholder="Altar Server Name as: Name Surname"  name="name" required>
+                                <input ng-model="apptName" type="text" class="form-control" placeholder="Altar Server Name as: Name Surname"  name="name" >
 								<a ng-click="addNames()"> <i class="fa fa-plus-square-o fa-3x"></i> </a>
                                 <p class="help-block text-danger"></p>
 								
@@ -298,10 +313,15 @@
                                 <button ng-click="setAppt()" type="submit" class="btn btn-success btn-lg">Appoint servers for Mass</button>
                             </div>
 							
+							<div class="form-group col-xs-12">
+                                <button ng-click="reset()" type="submit" class="btn btn-reset btn-lg">Reset</button>
+                            </div>
+							
+							
 							</div>
 							<div class="row">
                             <div class="form-group col-xs-12">							
-								<p>{{progress}} appointments for {{apptTime}} mass on {{apptDate | date :  "fullDate"}} by {{apptSign}}</p>
+								<p>{{progress}} appointments for {{apptType}} {{apptTime}} mass on {{apptDate | date :  "fullDate"}} by {{apptSign}}</p>
 								<ol>
 								<li ng-repeat="name in names">
 								<p>{{name}}   <a ng-click="removeName(name)" <i class="fa fa-minus-square-o fa-1x" ></i> </a> </p>

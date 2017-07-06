@@ -1,5 +1,7 @@
 // Login Controller : handles login ops
 
+'use strict';
+
 app.controller('loginCtrl',
 function($scope,$http){
 		
@@ -50,7 +52,7 @@ function($scope,$http){
 		}
 		
 		
-		//*/
+		*/
 		
 		///*
 		$http.post('/login/auth',  { 'username' : $scope.loginObj.username,'password': $scope.loginObj.password}).

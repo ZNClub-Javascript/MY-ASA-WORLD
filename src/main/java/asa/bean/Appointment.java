@@ -5,7 +5,7 @@ import java.util.List;
 public class Appointment {
 
 
-private List<String> names = null;
+private List<String> names ;
 
 private String date;
 

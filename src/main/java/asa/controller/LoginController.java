@@ -33,8 +33,16 @@ public class LoginController {
 			map.put("result","failure");
 		}
 		*/
+	    try{
 	    	map.put("result",loginService.authenticate(login.getUsername(),login.getPassword()));
+	    }
+	    catch(Exception e){
+	    	System.out.println("Exception at LoginController.authenticateUser() "+e);
+		map.put("result","password");
+	    }
+	    finally{
 		return map;
+	    }
     }
 	
 	
