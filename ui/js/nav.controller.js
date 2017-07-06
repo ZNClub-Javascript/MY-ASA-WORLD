@@ -7,52 +7,73 @@ function($scope,$rootScope){
  	
 	$scope.clickOptions= function(op,name){
 		
+		// add Appointment
 		if(op=='add' && name=='Appointment'){
 			
 			$rootScope.addAppt=!$rootScope.addAppt;
 			
 			$rootScope.evalAppt=false;
-			
+			$rootScope.viewScore=false;
+			$rootScope.addScore=false;
+			$rootScope.viewAttd=false;
+			$rootScope.addAttd=false;
 		}
+		// evaluate Appointment
 		else if(op=='evaluate' && name=='Appointment'){
 			
 			$rootScope.evalAppt=!$rootScope.evalAppt;
 			
+			
 			$rootScope.addAppt=false;
-			
-			
+			$rootScope.viewScore=false;
+			$rootScope.addScore=false;
+			$rootScope.viewAttd=false;
+			$rootScope.addAttd=false;
 		}
-		
-		if(op=='add' && name=='Attendance'){
+		// add Attendance
+		else if(op=='add' && name=='Attendance'){
 			
 			$rootScope.addAttd=!$rootScope.addAttd;
 			
+			$rootScope.evalAppt=false;
+			$rootScope.addAppt=false;
 			$rootScope.viewAttd=false;
-			
+			$rootScope.viewScore=false;
+			$rootScope.addScore=false;
 		}
+		// view Attendance
 		else if(op=='view' && name=='Attendance'){
 			
 			$rootScope.viewAttd=!$rootScope.viewAttd;
 			
-			$rootScope.addAttd=false;
-			
-			
+			$rootScope.evalAppt=false;
+			$rootScope.addAppt=false;
+			$rootScope.addAttd=false;			
+			$rootScope.viewScore=false;
+			$rootScope.addScore=false;
 		}
-		
-		if(op=='add to' && name=='Scoreboard'){
+		// add to Scoreboard
+		else if(op=='add to' && name=='Scoreboard'){
 			
 			$rootScope.addScore=!$rootScope.addScore;
 			
+			$rootScope.evalAppt=false;
+			$rootScope.addAppt=false;
 			$rootScope.viewScore=false;
+			$rootScope.viewAttd=false;
+			$rootScope.addAttd=false;
 			
 		}
+		// view Scoreboard
 		else if(op=='view' && name=='Scoreboard'){
 			
 			$rootScope.viewScore=!$rootScope.viewScore;
 			
+			$rootScope.evalAppt=false;
+			$rootScope.addAppt=false;
 			$rootScope.addScore=false;
-			
-			
+			$rootScope.viewAttd=false;
+			$rootScope.addAttd=false;
 		}
 		
 	}
