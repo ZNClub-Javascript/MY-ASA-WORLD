@@ -6,6 +6,8 @@
 app.controller('addAttdCtrl',
 function($scope,$filter,$http){		
 	
+	
+	
 	$scope.attendance={
 		
 		'number':'',
@@ -22,9 +24,9 @@ function($scope,$filter,$http){
 		$scope.attendance.number=number.toString();
 		
 		$scope.attendance.members=[
-		{'name':'Ker','score':'90','present':false},
-		{'name':'Ver','score':'90','present':false},
-		{'name':'Ber','score':'90','present':false},
+		{'name':'Ker','present':true},
+		{'name':'Ver','present':true},
+		{'name':'Ber','present':true}
 		
 		];
 		
@@ -36,8 +38,36 @@ function($scope,$filter,$http){
 	}
 	
 	
-	$scope.toggle = function(){
+	$scope.toggle = function(name,event){
 		success("toggle");
+		
+			
+		//get name
+		for (var i=$scope.attendance.members.length-1; i>=0; i--) {
+			var el = angular.element(event.target);
+			var className = el.attr("class");
+			
+			if($scope.attendance.members[i].name==name){								
+				
+				
+				if(className=='fa fa-check'){
+					el.removeClass('fa fa-check').addClass("fa fa-times");
+					el.css("color","red");
+					$scope.attendance.members[i].present=!$scope.attendance.members[i].present;
+					success($scope.attendance.members[i].present);
+					
+				}
+				else if(className=='fa fa-times'){
+					el.removeClass('fa fa-times').addClass("fa fa-check");
+					el.css("color","green");
+					$scope.attendance.members[i].present=!$scope.attendance.members[i].present;
+					success($scope.attendance.members[i].present);
+				}
+				
+			}
+		}
+		
+		
 	}
 }
 );

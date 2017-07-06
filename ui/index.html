@@ -483,11 +483,11 @@
 				<div class="col-lg-12" class="table-responsive">
 				
 					<table class="table">
-					<tr ng-repeat="member in attendance.members">
+					<tr  ng-repeat="member in attendance.members">
 					
 					<td>{{member.name}}</td>
 					<td>{{member.score}} %</td>
-					<td ><a ng-click="toggle()"><i  class="fa fa-calendar-check-o" ></i></a></td>
+					<td><a ng-click="toggle(member.name,$event)"><i class="fa fa-check" ></i></a></td>
 					
 					
 					<tr>					
