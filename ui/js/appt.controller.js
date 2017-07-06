@@ -117,6 +117,11 @@ function($scope,$filter,$http){
 			$scope.massTime.selectedTime='';
 			$scope.massTime.show=false;
 	}
-		
+	
+	
+	
+	
+	
+	
 }
 );

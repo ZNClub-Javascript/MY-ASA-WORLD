@@ -18,7 +18,7 @@
     <!-- Theme CSS -->    
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
 	
@@ -33,10 +33,12 @@
 	
 	
     <script src="js/main.js"></script>
-	<script src="js/main.controller.js"></script>
+	<script src="js/main.controller.js"></script>	
 	<script src="js/login.controller.js"></script>
 	<script src="js/appt.controller.js"></script>
 	<script src="js/nav.controller.js"></script>
+	<script src="js/evalAppt.controller.js"></script>
+	
 	
 	
 </head>
@@ -171,8 +173,9 @@
                 </div>
             </div>
             <div class="row">
+
                 <div class="col-sm-4 portfolio-item">
-                    <!-- <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal"> -->
+                    <!-- <a hre="#portfolioModal1" class="portfolio-link" data-toggle="modal"> -->
 						
 						<div class="caption">
                             <div class="caption-content">
@@ -220,17 +223,17 @@
                             <div class="caption-content">
                                 <!-- <i class="fa fa-search-plus fa-3x"></i> -->
 								<div class="col-lg-12 text-center">
-									<h3>Newspaper</h3>
+									<h3>Scoreboard</h3>
 								</div>
                             </div>
                         </div>				
 						
-                        <a href="#controls" class="portfolio-link" data-toggle="" ng-click="clickAppt()">
+                        <a href="#controls" class="portfolio-link" data-toggle="" ng-click="clickScore()">
 								
                         <!-- <img src="img/portfolio/cabin.png" class="img-responsive" alt="Cabin"> -->
 						<div class="col-lg-12 text-center">
 						<!-- <i class="fa fa-files-o fa-4x" ></i> -->
-						<i class="fa fa-file-text fa-4x" ></i>
+						<i class="fa fa-trophy fa-4x" ></i>
 						</div>
 						</a>
                     <!-- </a> -->
@@ -239,7 +242,7 @@
             </div>
 			<div id="controls" class="row" ng-if="navigation">
                 <div class="col-sm-4 portfolio-item" ng-repeat="op in option.options">
-                    <a href="" class="btn btn-lg" ng-click="clickAddAppt()">
+                    <a href="" class="btn btn-lg" ng-click="clickOptions(op,option.name)">
                         <i class="fa fa-hand-o-up"></i> {{op}} {{option.name}}
                     </a>					
                 </div>				
@@ -259,7 +262,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     
                     <form id="apptForm" novalidate>
-                        <div class="row control-group" ng-controller="apptCtrl" ng-cloak>
+                        <div class="row control-group" ng-controller="apptCtrl">
                             
 							<div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="sign">Sign</label>
@@ -335,6 +338,29 @@
             </div>
         </div>
     </section> 
+	
+	<section id="evalAppt" ng-if="true">
+        <div class="container" ng-controller="evalApptCtrl">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Evaluate Appointments</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">               
+                <div class="col-sm-4 portfolio-item" >
+                    <a href="" class="btn btn-lg" ng-click="clickDirectEvalAppt()">
+                        <i class="fa fa-bolt"></i> Direct Evaluation
+                    </a>					
+                </div>	
+				<div class="col-sm-4 portfolio-item">
+                    <a href="" class="btn btn-lg" ng-click="clickAppEvalAppt()">
+                        <i class="fa fa-table"></i> Select from App
+                    </a>					
+                </div>	
+            </div>
+        </div>
+    </section>
 		
     <!-- About Section -->
     <section class="success" id="about" ng-if="about">

@@ -8,7 +8,7 @@ function($scope){
 	//$scope.sessionRole=-1;
 	
 	//global variables
-	$scope.version='1.3';
+	$scope.version='2.3';
 	$scope.mode='testing';
 	$scope.loginShow=$scope.navShow=$scope.about=$scope.navigation=$scope.addAppt=$scope.showTimingList=false;
 	
