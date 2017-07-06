@@ -14,7 +14,7 @@ function error(mod){console.log("Oops...Something went wrong!! #"+mod);}
 function alertLogin(scope){
 	//alert(scope.loginObj.status);
 	
-	//for test env only
+	//for UI test env only
 	
 	///*
 	return true;

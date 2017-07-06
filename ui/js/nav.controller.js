@@ -3,7 +3,7 @@
 'use strict';
 
 app.controller('navCtrl',
-function($scope,clickAddAppt){
+function($scope){
  	
 	$scope.clickOptions= function(op,name){
 		success("clickOptions");
@@ -11,7 +11,9 @@ function($scope,clickAddAppt){
 		success(name);
 		
 		if(op=='add' && name=='Appointment'){
-			clickAddAppt.show();
+			
+			
+			
 		}
 		
 	}
