@@ -3,14 +3,15 @@
 'use strict';
 
 app.controller('mainCtrl',
-function($scope){
+function($scope, $rootScope){
 	
 	//$scope.sessionRole=-1;
 	
 	//global variables
 	$scope.version='2.3';
 	$scope.mode='testing';
-	$scope.loginShow=$scope.navShow=$scope.about=$scope.navigation=$scope.addAppt=$scope.showTimingList=false;
+	$rootScope.loginShow=$rootScope.addAppt=false;
+	$scope.navShow=$scope.about=$scope.navigation=$scope.showTimingList=false;
 	
 	$scope.loginObj={'status':true,'username':'','password':''};
 	$scope.massTime={'show':false,'timeList':[],'selectedTime':'',toast:''};
@@ -32,7 +33,7 @@ function($scope){
 		}
 	}
 	
-	$scope.clickAddAppt= function(){
+	var clickAddAppt= function(){
 		$scope.addAppt=true;		
 		$scope.loginShow=false;
 	}
