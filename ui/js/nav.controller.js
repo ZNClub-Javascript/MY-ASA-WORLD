@@ -39,6 +39,22 @@ function($scope,$rootScope){
 			
 		}
 		
+		if(op=='add to' && name=='Scoreboard'){
+			
+			$rootScope.addScore=!$rootScope.addScore;
+			
+			$rootScope.viewScore=false;
+			
+		}
+		else if(op=='view' && name=='Scoreboard'){
+			
+			$rootScope.viewScore=!$rootScope.viewScore;
+			
+			$rootScope.addScore=false;
+			
+			
+		}
+		
 	}
 	
 	$scope.clickAppt= function(){
@@ -54,7 +70,7 @@ function($scope,$rootScope){
 	
 	$scope.clickScore= function(){
 		$scope.navigation=true;
-		$scope.option = {'name':'Scorecard','options':['add to','view']};
+		$scope.option = {'name':'Scoreboard','options':['add to','view']};
 	} 
 	
 	

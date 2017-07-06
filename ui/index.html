@@ -37,6 +37,7 @@
 	<script src="js/login.controller.js"></script>
 	<script src="js/appt.controller.js"></script>
 	<script src="js/attd.controller.js"></script>
+	<script src="js/score.controller.js"></script>
 	<script src="js/nav.controller.js"></script>
 	
 	
@@ -395,7 +396,34 @@
         </div>
     </section>
 	
+	<section id="addScore" ng-if="addScore">
+        <div class="container" ng-controller="addScoreCtrl">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="col-lg-12 text-center">
+                    <h2>Add Points to Scoreboard</h2>
+                    <hr class="star-primary">
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
 	
+	
+	<section id="viewScore" ng-if="viewScore">
+        <div class="container" ng-controller="viewScoreCtrl">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="col-lg-12 text-center">
+                    <h2>View Scoreboard</h2>
+                    <hr class="star-primary">
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
 	
 	
 		
