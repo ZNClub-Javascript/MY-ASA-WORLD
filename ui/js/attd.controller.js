@@ -34,6 +34,11 @@ function($scope,$filter,$http){
 		
 		
 	}
+	
+	
+	$scope.toggle = function(){
+		success("toggle");
+	}
 }
 );
 

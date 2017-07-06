@@ -472,17 +472,32 @@
 			<br>
 			<div class="row">		
 				<div id="attendance" class="portfolio-link">
-					
 					<div class="col-lg-12 text-center">
-						<h4>Adding attendance for {{attendance.number}} on {{attendance.date}}</h4>
-					</div>
-					<br>
+						<h4>Adding attendance for Group {{attendance.number}} on {{attendance.date}}</h4>
+					</div>										
+				</div>			
+			</div>
+			<div class="row">		
+			
+			
+				<div class="col-lg-12" class="table-responsive">
+				
+					<table class="table">
+					<tr ng-repeat="member in attendance.members">
+					
+					<td>{{member.name}}</td>
+					<td>{{member.score}} %</td>
+					<td ><a ng-click="toggle()"><i  class="fa fa-calendar-check-o" ></i></a></td>
 					
 					
-					
+					<tr>					
+					</table>
+
+
 				</div>
 			
 			</div>
+					
 				
             
         </div>
