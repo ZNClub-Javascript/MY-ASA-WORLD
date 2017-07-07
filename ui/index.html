@@ -282,7 +282,7 @@
 								
 								<md-content layout-padding ng-cloak>
 									<div layout-gt-xs="row"><div flex-gt-xs>									  
-									  <md-datepicker ng-change="selectDate()" ng-model="apptDate" md-placeholder="Enter date"></md-datepicker>
+									  <md-datepicker ng-change="selectDate()" ng-model="apptDate" md-placeholder="Select date"></md-datepicker>
 									</div></div>
 								</md-content>
 
@@ -373,7 +373,7 @@
 								
 								<md-content layout-padding ng-cloak>
 									<div layout-gt-xs="row"><div flex-gt-xs>									  
-									  <md-datepicker ng-change="selectDate()" ng-model="apptDate" md-placeholder="Enter date"></md-datepicker>
+									  <md-datepicker ng-change="selectDate()" ng-model="apptDate" md-placeholder="Select date"></md-datepicker>
 									</div></div>
 								</md-content>								
                                 
@@ -468,6 +468,16 @@
 			
 			
 			<div class="row">
+			
+				<div class="col-lg-12 text-center">                                
+				
+				<md-content layout-padding ng-cloak>
+					<div layout-gt-xs="row"><div flex-gt-xs>									  
+					  <md-datepicker ng-model="attendance.date" md-placeholder="Select meeting date"></md-datepicker>
+					</div></div>
+				</md-content>
+
+				</div>
                 <div class="col-sm-4 portfolio-item">
                     	<div class="caption">
                             <div class="caption-content">                    
@@ -553,11 +563,13 @@
 						</a>
                 </div>
             </div>
+			
+			
 			<br>
 			<div class="row">		
 				<div id="attendance" class="portfolio-link">
 					<div class="col-lg-12 text-center">
-						<h4>Adding attendance for Group {{attendance.number}} on {{attendance.date}}</h4>
+						<h4>Adding attendance for Group {{attendance.number}} on {{attendance.date | date :  "fullDate"}}</h4>
 					</div>										
 				</div>			
 			</div>
@@ -605,6 +617,17 @@
                 </div>
             </div>
             <div class="row">
+				
+				<div class="col-lg-12 text-center">                                
+				
+				<md-content layout-padding ng-cloak>
+					<div layout-gt-xs="row"><div flex-gt-xs>									  
+					  <md-datepicker ng-model="attendance.date" md-placeholder="Select meeting date"></md-datepicker>
+					</div></div>
+				</md-content>
+
+				</div>
+			
                 <div class="col-sm-4 portfolio-item">
                     	<div class="caption">
                             <div class="caption-content">                    
@@ -696,7 +719,7 @@
 			<div class="row">		
 				<div id="attendance" class="portfolio-link">
 					<div class="col-lg-12 text-center">
-						<h4>Viewing attendance for Group {{attendance.number}} for {{total}} meetings</h4>
+						<h4>Viewing attendance for Group {{attendance.number}} for {{apptDate |  date :  "fullDate"}} meetings</h4>
 					</div>										
 				</div>			
 			</div>
