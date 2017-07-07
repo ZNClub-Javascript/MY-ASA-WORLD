@@ -383,7 +383,7 @@
 							
 							<div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="type">Type</label>
-								<select  class="form-control" ng-model="apptType" ng-options="x for x in types"></select>
+								<select ng-change="selectType()" class="form-control" ng-model="apptType" ng-options="x for x in types"></select>
 																
 							</div>	
 							
@@ -403,16 +403,24 @@
 												
 							
 							<div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="name">Names</label>
-                                <input ng-model="apptName" type="text" class="form-control" placeholder="Altar Server Name as: Name Surname"  name="name" >
+                                <label for="name">Names who were present</label>
+                                <input ng-model="apptName" type="text" class="form-control" placeholder="Altar Server Name who was present as: Name Surname"  name="name" >
 								<a ng-click="addNames()"> <i class="fa fa-plus-square-o fa-3x"></i> </a>
                                 <p class="help-block text-danger"></p>
 								
                             </div>
 							
+							<!-- <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="name">Names who were absent</label>
+                                <input ng-model="apptAbsent" type="text" class="form-control" placeholder="Altar Server Name who was absent as: Name Surname"  name="name" >
+								<a ng-click="addAbsentNames()"> <i class="fa fa-plus-square-o fa-3x"></i> </a>
+                                <p class="help-block text-danger"></p>
+								
+                            </div> -->
+							
 							<div class="row">
                             <div class="form-group col-xs-12">
-                                <button ng-click="setAppt()" type="submit" class="btn btn-success btn-lg">Appoint servers for Mass</button>
+                                <button ng-click="setAppt()" type="submit" class="btn btn-success btn-lg">Complete Evaluation</button>
                             </div>
 							
 							<div class="form-group col-xs-12">
