@@ -409,7 +409,12 @@
                                 
 								<ol>
 								<li ng-repeat="name in names">
-								<p>{{name}}   <a ng-click="removeName(name)" <i class="fa fa-minus-square-o fa-1x" ></i> </a> </p>
+								<p>{{name}}   <a ng-click="removeName(name,$event,'present')"><i style="color:green;" class="fa fa-check" ></i></a> </p>
+								</li>
+								</ol>
+								<ol>
+								<li ng-repeat="name in absent">
+								<p>{{name}}   <a ng-click="removeName(name,$event,'absent')"><i style="color:red;" class="fa fa-times" ></i></a> </p>
 								</li>
 								</ol>
 									

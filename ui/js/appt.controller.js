@@ -132,6 +132,7 @@ function($scope,$filter,$http){
  	
 	$scope.types=['Regular','Special'];
 	$scope.names=[];
+	$scope.absent=[];
 	$scope.progress='Evaluating';
 	
 	var result=null;
@@ -240,17 +241,53 @@ function($scope,$filter,$http){
 		success("addName");
 	}
 	
-	$scope.removeName=function(name){
+	$scope.removeName=function(name,event,arr){
 		
-		for (var i=$scope.names.length-1; i>=0; i--) {
-			if ($scope.names[i] === name) {
-				$scope.names.splice(i, 1);
-				success("removeName");
-				break;
+		
+		var el = angular.element(event.target);
+		var className = el.attr("class");
+			
+		// CHECK NAME in NAMES
+		
+		if(arr=='present'){
+		
+			for (var i=$scope.names.length-1; i>=0; i--) {
+				if ($scope.names[i] === name) {
+					// TO MARK ABSENT
+					
+						el.removeClass('fa fa-check').addClass("fa fa-times");
+						el.css("color","red");
+						$scope.names.splice(i, 1);
+						$scope.absent.push(name);
+						
+						
+					
+					
+					break;
+				}
 			}
+		}
+		else if(arr=='absent'){
+			
+			for (var i=$scope.absent.length-1; i>=0; i--) {
+				if ($scope.absent[i] === name) {
+					
+					// TO MARK PRESENT
+					
+						el.removeClass('fa fa-times').addClass("fa fa-check");
+						el.css("color","green");
+						$scope.absent.splice(i, 1);
+						$scope.names.push(name);
+					
+					
+					break;
+				}
+			}
+			
 		}
 		
 	}
+		
 	
 	
 	$scope.reset = function(){

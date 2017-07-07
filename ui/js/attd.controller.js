@@ -74,6 +74,7 @@ function($scope,$filter,$http){
 					success($scope.attendance.members[i].present);
 				}
 				
+				break;
 			}
 		}				
 	}
