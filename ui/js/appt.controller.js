@@ -10,6 +10,27 @@ function($scope,$filter,$http){
 	$scope.names=[];
 	$scope.progress='Adding';
 	
+	var getTime=[];
+	
+	$scope.selectDate=function(){
+		success($scope.apptDate);
+		
+		// HTTP GET time
+		
+				
+		getTime=['06:00 AM','07:00 AM','08:00 AM','06:15 PM'];
+		
+		var day = $filter('date')($scope.apptDate,"fullDate");
+		var url = '/timelist/'+day[0]+day[1]+day[2];
+		success(url);
+		
+		/* $http.get().
+        then(function(response) {
+            //DO NOTHING
+			
+        });	
+		*/
+	}
 	
 	$scope.timings=function(){
 		
@@ -136,11 +157,31 @@ function($scope,$filter,$http){
 	$scope.progress='Evaluating';
 	
 	var result=null;
+	var getTime=[];
+	
+	
+	
+	
 	
 	$scope.selectDate=function(){
 		success($scope.apptDate);
 		
-		// HTTP GET
+		// HTTP GET time
+		
+				
+		getTime=['06:00 AM','07:00 AM','08:00 AM','06:15 PM'];
+		
+		var day = $filter('date')($scope.apptDate,"fullDate");
+		var url = '/timelist/'+day[0]+day[1]+day[2];
+		success(url);
+		
+		/* $http.get().
+        then(function(response) {
+            //DO NOTHING
+			
+        });		 
+*/
+		
 		
 		// store results
 		result = {
@@ -211,7 +252,7 @@ function($scope,$filter,$http){
 			$scope.massTime.show=true;
 			if($scope.apptType==REGULAR){
 				
-				$scope.massTime.timeList=['06:00 AM','07:00 AM','08:00 AM','06:15 PM'];
+				$scope.massTime.timeList=getTime;
 				$scope.massTime.toast='Select from below options:';
 			}
 			else{
