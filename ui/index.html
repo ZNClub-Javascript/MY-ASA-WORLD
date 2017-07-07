@@ -354,28 +354,16 @@
                     <hr class="star-primary">
                 </div>
                 </div>
-            </div>
-            <div class="row" >               
-                <div class="col-sm-4 portfolio-item" >
-                    <a href="" class="btn btn-lg" ng-click="clickDirectEvalAppt()">
-                        <i class="fa fa-bolt"></i> Direct Evaluation
-                    </a>					
-                </div>					               				    
-				<div class="col-sm-4 portfolio-item">
-                    <a href="" class="btn btn-lg" ng-click="clickAppEvalAppt()">
-                        <i class="fa fa-table"></i> Select from App
-                    </a>					
-                </div>
-			</div>
+            </div>            
 			<div class="row">				
                 <div class="col-lg-8 col-lg-offset-2">
                     
                     <form id="apptForm" novalidate>
-                        <div class="row control-group" ng-controller="addApptCtrl">
+                        <div class="row control-group">
                             
 							<div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="sign">Sign</label>
-                                <input ng-model="apptSign" type="text" class="form-control" placeholder="Name of the Assignee" name="sign"  >
+                                <input ng-model="apptSign" type="text" class="form-control" placeholder="Name of the Evaluator" name="sign"  >
                                 <p class="help-block text-danger"></p>
                             </div>
 							
@@ -385,7 +373,7 @@
 								
 								<md-content layout-padding ng-cloak>
 									<div layout-gt-xs="row"><div flex-gt-xs>									  
-									  <md-datepicker ng-model="apptDate" md-placeholder="Enter date"></md-datepicker>
+									  <md-datepicker ng-change="selectDate()" ng-model="apptDate" md-placeholder="Enter date"></md-datepicker>
 									</div></div>
 								</md-content>								
                                 
@@ -395,7 +383,7 @@
 							
 							<div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="type">Type</label>
-								<select  class="form-control" ng-model="apptType" ></select>
+								<select  class="form-control" ng-model="apptType" ng-options="x for x in types"></select>
 																
 							</div>	
 							

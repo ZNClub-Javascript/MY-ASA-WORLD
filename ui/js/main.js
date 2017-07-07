@@ -38,12 +38,12 @@ function alertLogin(scope){
 */	
 
 // HTTP POST
-
+/*
 $http.post('/login/auth',  { 'username' : $scope.loginObj.username,'password': $scope.loginObj.password}).
 		then(function(response){
 			//DO NOTHING
 		});
-
+*/
 
 /*
 function showTimings(){

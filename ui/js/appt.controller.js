@@ -9,9 +9,7 @@ function($scope,$filter,$http){
 	$scope.types=['Regular','Special'];
 	$scope.names=[];
 	$scope.progress='Adding';
-	$scope.times=false;
 	
-	this.isOpen = false;
 	
 	$scope.addNames=function(){
 		$scope.names.push($scope.apptName);
@@ -50,7 +48,7 @@ function($scope,$filter,$http){
 	}
 	
 	$scope.updateApptTime = function(){
-		success($scope.massTime.selectedTime+" vs the "+$scope.apptTime);
+		//success($scope.massTime.selectedTime+" vs the "+$scope.apptTime);
 		$scope.apptTime = $scope.massTime.selectedTime;
 	}
 	
@@ -133,13 +131,12 @@ function($scope,$filter,$http){
 app.controller('evalApptCtrl',
 function($scope,$filter,$http){
  	
-	$scope.clickDirectEvalAppt = function(){
-		success("direct");
-	}
+	$scope.types=['Regular','Special'];
+	$scope.names=[];
+	$scope.progress='Adding';
 	
-	$scope.clickAppEvalAppt = function(){
-		success("app");
+	$scope.selectDate=function(){
+		success($scope.apptDate);
 	}
-
 }
 ); 
