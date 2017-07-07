@@ -297,12 +297,58 @@ function($scope,$filter,$http){
 		
 	}
 		
-	
+	$scope.setAppt=function(){
+		//check username and password
+		
+		var fmtDate=$filter('date')($scope.apptDate,"dd/MM/yy");
+		var status=false;
+		success(fmtDate);
+		
+		
+		
+		
+		
+		/*
+		$http.post('/evaluate',  
+		{ 
+		'sign' : $scope.apptSign,
+		'date' : fmtDate,
+		'type' : $scope.apptType,
+		'time' : $scope.apptTime,
+		'names' : $scope.names,	
+		'absent' : $scope.absent,	
+		}).
+		then(function(response,status){
+			console.log(response.data);
+			if(response.data['result']=='success'){
+				status=true;
+			}
+		
+		
+		});
+		
+		*/
+		
+		//true then set auth to true
+		if(status==true){		
+		
+			
+			//debug
+			success("appt");
+			$scope.progress='Evaluated';
+			
+		}
+		else{
+			error("appt");
+			$scope.progress='Something went wrong! Please try again to Evaluate'
+		}
+	}
 	
 	$scope.reset = function(){
 		
-			$scope.progress='Adding';
+			$scope.progress='Evaluate';
 			$scope.names=[];
+			$scope.absent=[];
 			$scope.apptDate='';
 			$scope.apptTime='';
 			$scope.apptType='';			
@@ -311,6 +357,6 @@ function($scope,$filter,$http){
 			$scope.massTime.show=false;
 	}
 	
-	
 }
 ); 
+
