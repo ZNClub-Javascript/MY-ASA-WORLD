@@ -233,6 +233,15 @@ function($scope,$filter,$http){
 	$scope.updateApptTime = function(){
 		//success($scope.massTime.selectedTime+" vs the "+$scope.apptTime);
 		$scope.apptTime = $scope.massTime.selectedTime;
+		if(result!=null){
+			
+			for (var i=result.schedule.length-1; i>=0; i--) {
+				if(result.schedule[i].time==$scope.apptTime){
+					$scope.names=result.schedule[i].names;
+				}
+			}
+			
+		}
 	}
 	
 	$scope.addNames=function(){
