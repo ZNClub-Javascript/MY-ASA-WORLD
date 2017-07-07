@@ -29,6 +29,21 @@ function alertLogin(scope){
 	}
 }
 
+// HTTP GET
+/* $http.get('/login').
+        then(function(response) {
+            //DO NOTHING
+			
+        });		 
+*/	
+
+// HTTP POST
+
+$http.post('/login/auth',  { 'username' : $scope.loginObj.username,'password': $scope.loginObj.password}).
+		then(function(response){
+			//DO NOTHING
+		});
+
 
 /*
 function showTimings(){
@@ -60,4 +75,6 @@ function createDropDownList(times){
     $("#mass-timings").append(combo);
 }
 */
+
+
 

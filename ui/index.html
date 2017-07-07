@@ -355,19 +355,99 @@
                 </div>
                 </div>
             </div>
-            <div class="row">               
+            <div class="row" >               
                 <div class="col-sm-4 portfolio-item" >
                     <a href="" class="btn btn-lg" ng-click="clickDirectEvalAppt()">
                         <i class="fa fa-bolt"></i> Direct Evaluation
                     </a>					
-                </div>	
+                </div>					               				    
 				<div class="col-sm-4 portfolio-item">
                     <a href="" class="btn btn-lg" ng-click="clickAppEvalAppt()">
                         <i class="fa fa-table"></i> Select from App
                     </a>					
-                </div>	
-            </div>
-        </div>
+                </div>
+			</div>
+			<div class="row">				
+                <div class="col-lg-8 col-lg-offset-2">
+                    
+                    <form id="apptForm" novalidate>
+                        <div class="row control-group" ng-controller="addApptCtrl">
+                            
+							<div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="sign">Sign</label>
+                                <input ng-model="apptSign" type="text" class="form-control" placeholder="Name of the Assignee" name="sign"  >
+                                <p class="help-block text-danger"></p>
+                            </div>
+							
+							
+							<div class="form-group col-xs-12 floating-label-form-group controls">
+                                
+								
+								<md-content layout-padding ng-cloak>
+									<div layout-gt-xs="row"><div flex-gt-xs>									  
+									  <md-datepicker ng-model="apptDate" md-placeholder="Enter date"></md-datepicker>
+									</div></div>
+								</md-content>								
+                                
+                            </div>
+							
+							
+							
+							<div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="type">Type</label>
+								<select  class="form-control" ng-model="apptType" ></select>
+																
+							</div>	
+							
+							
+		
+							
+							<div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="time">Time</label>
+                                <input ng-model="apptTime" ng-change="timings()" type="text" class="form-control" placeholder="Time of Mass as HH:MM AM/PM" name="time" >                                
+                            </div>	
+							
+							<div class="form-group col-xs-12 floating-label-form-group controls" ng-if="massTime.show">
+                                <p> {{massTime.toast}} </p>
+								<select  class="form-control" ng-change="updateApptTime()" ng-model="massTime.selectedTime" ng-options="x for x in massTime.timeList | filter : apptTime"></select>
+								
+							</div>
+												
+							
+							<div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="name">Names</label>
+                                <input ng-model="apptName" type="text" class="form-control" placeholder="Altar Server Name as: Name Surname"  name="name" >
+								<a ng-click="addNames()"> <i class="fa fa-plus-square-o fa-3x"></i> </a>
+                                <p class="help-block text-danger"></p>
+								
+                            </div>
+							
+							<div class="row">
+                            <div class="form-group col-xs-12">
+                                <button ng-click="setAppt()" type="submit" class="btn btn-success btn-lg">Appoint servers for Mass</button>
+                            </div>
+							
+							<div class="form-group col-xs-12">
+                                <button ng-click="reset()" type="submit" class="btn btn-reset btn-lg">Reset</button>
+                            </div>
+							
+							
+							</div>
+							<div class="row">
+                            <div class="form-group col-xs-12">							
+								<p>{{progress}} appointments for {{apptType}} {{apptTime}} mass on {{apptDate | date :  "fullDate"}} by {{apptSign}}</p>
+								<ol>
+								<li ng-repeat="name in names">
+								<p>{{name}}   <a ng-click="removeName(name)" <i class="fa fa-minus-square-o fa-1x" ></i> </a> </p>
+								</li>
+								</ol>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>           
+			</div>
+        </div>        
     </section>
 	
 	
