@@ -5,6 +5,7 @@ import asa.service.AppointmentService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.*;
 
 @RestController
@@ -19,6 +20,24 @@ public class AppointmentController {
 		Map<String,Object> map=new HashMap<>();
 		System.out.println("Inside AppointmentController");
 		List<Appointment> list= appointmentService.get();
+		System.out.println("Length :"+list.size());
+		
+		if(list.size()!=0){
+			map.put("result",new String("success"));
+			map.put("list",list);
+		}
+		else{
+			map.put("result",new String("failed"));
+		}
+			
+		return map;
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public @ResponseBody Map<String,Object> viewByDate(@RequestParam("date") String date){
+		Map<String,Object> map=new HashMap<>();
+		System.out.println("Inside AppointmentController");
+		List<Appointment> list= appointmentService.getByDate(date);
 		System.out.println("Length :"+list.size());
 		
 		if(list.size()!=0){
