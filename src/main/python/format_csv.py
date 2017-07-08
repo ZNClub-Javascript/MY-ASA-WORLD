@@ -10,9 +10,9 @@ import pandas as pd
 ##READ FILE
 
 dir_path='../resources/static/csv/'
+#filenames=['ASA Registration Test Sample.csv']
 filenames=['ASA Registration Test Sample.csv']
-
-df = pd.read_csv(dir_path+filenames[0])
+#df = pd.read_csv(dir_path+filenames[0])
 
 ##DROP UNWANTED COL AND RENAME
 
