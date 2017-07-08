@@ -29,3 +29,6 @@ db.member.find({"name": /.*search_query.*/search_options})
 
 // count 
 count()
+
+// load script
+load("srcipt.js");
