@@ -5,16 +5,19 @@ app.config(function($routeProvider) {
     .when("/", {
         templateUrl : "index.html"
     })
-	.when("/index", {
+	.when("/index.html", {
         templateUrl : "index.html"
     })
-    .when("/profile", {
+    .when("/profile.html", {
         templateUrl : "profile.html"
     })
-    .when("/green", {
-        templateUrl : "green.htm"
+    .when("/score.html", {
+        templateUrl : "score.html"
     })
-    .when("/blue", {
-        templateUrl : "blue.htm"
+    .when("/week.html", {
+        templateUrl : "week.html"
+    })
+	.when("/birthday.html", {
+        templateUrl : "birthday.html"
     });
 });
