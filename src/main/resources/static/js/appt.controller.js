@@ -159,7 +159,38 @@ function($scope,$filter,$http){
 	var result=null;
 	var getTime=[];
 	
-	
+	function fillResult(obj){
+		// response list
+		var arr=obj['list'];
+		
+		// set date
+		result_date = arr[0]['date'];
+		
+		// initialize
+		result_schedule = [] ;
+		
+		
+		// iterate response list
+		for (var i=arr.length-1; i>=0; i--){
+			
+			//initialize
+			schedule = {'time':'','type':'','names':[]};
+			
+			//fill
+			schedule['time']=arr[i]['time'];
+			schedule['type']=arr[i]['type'];
+			schedule['names']=arr[i]['names'];
+			
+			//push
+			result_schedule.push(schedule);
+			
+			
+		}
+		
+		result={'date':result_date,'schedule':result_schedule};
+		return result;
+		
+	}
 	
 	
 	
@@ -174,8 +205,7 @@ function($scope,$filter,$http){
 		var day = $filter('date')($scope.apptDate,"fullDate");
 		var url = '/timelist/'+day[0]+day[1]+day[2];
 		success(url);
-		
-		/* $http.get().
+		/* $http.get(url).
         then(function(response) {
             //DO NOTHING
 			
@@ -183,16 +213,38 @@ function($scope,$filter,$http){
 */
 		
 		
+		// HTTP GET APPOINTMENT on DATE
+		var url_date='30/06/17';
+		url='/appointment?date='+url_date;
+		
+		$http.get(url).
+        then(function(response) {
+            //DO NOTHING
+			if(response.data['result']=='success'){
+				var obj = response.data['object'];
+				result=fillResult(obj);
+				
+				
+			}
+			else if(response.data['result']=='failed'){
+				 //DO NOTHING
+			}
+			
+        });		 
+*/
+		
+		
 		// store results
+		/*
 		result = {
-			'date':'07/07/17',
+			'date':'30/06/17',
 			'schedule':[{'time':'07:00 AM','type':'Regular','names':['Ben','Ten','When','Hen']},
 						{'time':'06:00 AM','type':'Regular','names':['Pen','Gwen','Ren','Men']},
 						{'time':'09:00 AM','type':'Special','names':['Pen','Gwen','Ren','Men']}
 			]
 		
 		}
-		
+		*/
 		var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
 		var resultDate = '#'+result.date;
 		
