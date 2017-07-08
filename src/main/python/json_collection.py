@@ -24,15 +24,16 @@ records=list()
 ##WRITE OUT
 
 for i,r in df.iterrows():
-    record={'name':'','role':'','school':'gender','dob':'','addr':'','contact':''}
+    record={'name':'','role':'','school':'gender','dob':'','addr':'','contact':'','group':''}
 
-    record['name']=i
+    record['name']=str(i)
     record['role']=str(r.role)
-    record['school']=r.school
-    record['gender']=r.gender
+    record['school']=str(r.school)
+    record['gender']=str(r.gender)
     record['dob']=str(r.dob)    
     record['addr']=str(r.addr)
     record['contact']=str(r.contact)
+    record['group']=str(r.group)
     records.append(record)
 
 
