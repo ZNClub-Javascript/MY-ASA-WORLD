@@ -8,7 +8,7 @@ console.log("Welcome to main.js");
 // init function
 var REGULAR = 'Regular';
 
-var app=angular.module('ASA',['ngMaterial', 'ngMessages']);
+var app=angular.module('ASA',['ngMaterial', 'ngMessages','ngRoute']);
 
 function success(mod){console.log("Successfully executed!! #"+mod);}
 function error(mod){console.log("Oops...Something went wrong!! #"+mod);}
