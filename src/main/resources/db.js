@@ -18,6 +18,9 @@ db.test.insert(
 {'name':'ADMIN','stress':'high'}
 )
 
+// drop table
+db.member.drop()
+
 // check result of operation OR show collection
 db.test.find().pretty()
 
