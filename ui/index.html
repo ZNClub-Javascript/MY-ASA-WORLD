@@ -579,6 +579,12 @@
 				<div class="col-lg-12" class="table-responsive">
 				
 					<table class="table">
+					
+					<tr>					
+					<td><p><strong>NAME</strong></p></td>	
+					<td><p><strong>PRESENT</strong></p></td>					
+					<tr>
+					
 					<tr  ng-repeat="member in attendance.members">
 					
 					<td><p>{{member.name}}</p></td>					
@@ -719,7 +725,7 @@
 			<div class="row">		
 				<div id="attendance" class="portfolio-link">
 					<div class="col-lg-12 text-center">
-						<h4>Viewing attendance for Group {{attendance.number}} for {{apptDate |  date :  "fullDate"}} meetings</h4>
+						<h4>Viewing attendance for Group {{attendance.number}} for {{attendance.date |  date :  "fullDate"}} meetings</h4>
 					</div>										
 				</div>			
 			</div>
@@ -732,17 +738,14 @@
 					
 					<tr>					
 					<td><p><strong>NAME</strong></p></td>	
-					<td><p><strong>ATTENDANCE %</strong></p></td>					
+					<td><p><strong>PRESENT</strong></p></td>					
 					<tr>
 
-					<tr  ng-repeat="member in attendance.members">
-					
+					<tr  ng-repeat="member in attendance.members">					
 					<td><p>{{member.name}}</p></td>	
-					<td><p>{{member.score}}</p></td>					
-					
-					
-					
-					<tr>					
+					<td ng-if="member.present"><i  style="color:green" class="fa fa-check" ></i></td>
+					<td  ng-if="!member.present" ><i style="color:red" class="fa fa-times" ></i></td>	
+					<tr>
 					</table>
 
 
