@@ -12,6 +12,7 @@ public interface ScheduleDAO extends MongoRepository<Schedule, String> {
 
     
     public List<Schedule> findAll();
+    public List<Schedule> findByDate(String date);
     public Schedule insert(Schedule schedule);
 
 }
