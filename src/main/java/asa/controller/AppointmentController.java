@@ -33,7 +33,7 @@ public class AppointmentController {
 		return map;
 	}
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value="/by",method = RequestMethod.GET)
 	public @ResponseBody Map<String,Object> viewByDate(@RequestParam("date") String date){
 		Map<String,Object> map=new HashMap<>();
 		System.out.println("Inside AppointmentController");
