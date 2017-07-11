@@ -231,7 +231,7 @@ function($scope,$filter,$http){
 			}
 			
         });		 
-*/
+//*/
 		
 		
 		// store results
