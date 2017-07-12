@@ -35,4 +35,7 @@ load("srcipt.js");
 
 
 /* SCHEMA */
+user{id,username,password,role}
+member{}
+schedule{id,class,names[],date,time,type,sign}
 
