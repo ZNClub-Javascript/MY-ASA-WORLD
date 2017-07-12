@@ -159,7 +159,8 @@ function($scope,$filter,$http){
 	
 	var getTime=[];
 	
-	function fillResult(obj,$scope){
+	// comment function
+	/*function fillResult(obj,$scope){
 		// response list
 		var arr=obj;
 		
@@ -195,7 +196,7 @@ function($scope,$filter,$http){
 		
 		//return result;
 		
-	}
+	}*/
 	
 	
 	
@@ -223,20 +224,54 @@ function($scope,$filter,$http){
 		url='/appointment/by?date='+url_date;
 		
 		$http.get(url).
-        then(function(response) {
-            //DO NOTHING
+        	then(function(response) {
+            		
 			if(response.data['result']=='success'){
 				var obj = response.data['list'];
-				fillResult(obj,$scope);
-				success($scope.result.date);
 				
+				// response list
+				var arr=obj;
+
+				// set date
+				error(arr[0]);
+				error(arr[0]['date']);
+				result_date = arr[0]['date'];
+
+				// initialize
+				result_schedule = [] ;
+
+
+				// iterate response list
+				for (var i=arr.length-1; i>=0; i--){
+
+					//initialize
+					schedule = {'time':'','type':'','names':[]};
+
+					//fill
+					schedule['time']=arr[i]['time'];
+					schedule['type']=arr[i]['type'];
+					schedule['names']=arr[i]['names'];
+
+					//push
+					result_schedule.push(schedule);
+
+
+				}
+
+				//result={'date':result_date,'schedule':result_schedule};
+				$scope.result.date=result_date;
+				$scope.result.schedule=result_schedule;
+
+
+
+
 				
 			}
 			else if(response.data['result']=='failed'){
 				 //DO NOTHING
 			}
 			
-        });		 
+        	});		 
 //*/
 		
 		
@@ -251,7 +286,9 @@ function($scope,$filter,$http){
 		
 		}
 		*/
+		
 		success("before date compare "+$scope.result.date);
+		
 		var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
 		var resultDate = '#'+$scope.result.date;
 		
