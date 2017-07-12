@@ -36,6 +36,6 @@ load("srcipt.js");
 
 /* SCHEMA */
 user{id,username,password,role}
-member{}
-schedule{id,class,names[],date,time,type,sign}
+member{id,gender,dob'yyyy-mm-dd',contact,addr,name,role,group,school}
+schedule{id,class,names[],date'dd/mm/yy',time'hh:mm am',type,sign}
 
