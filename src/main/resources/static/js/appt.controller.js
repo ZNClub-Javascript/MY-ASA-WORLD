@@ -156,7 +156,7 @@ function($scope,$filter,$http){
 	$scope.absent=[];
 	$scope.progress='Evaluating';
 	
-	var result=null;
+	$scope.result=null;
 	var getTime=[];
 	
 	function fillResult(obj){
@@ -190,7 +190,7 @@ function($scope,$filter,$http){
 		}
 		
 		result={'date':result_date,'schedule':result_schedule};
-		success(result.date);
+		
 		return result;
 		
 	}
@@ -225,8 +225,8 @@ function($scope,$filter,$http){
             //DO NOTHING
 			if(response.data['result']=='success'){
 				var obj = response.data['list'];
-				result=fillResult(obj);
-				success(result.date);
+				$scope.result=fillResult(obj);
+				
 				
 				
 			}
@@ -249,13 +249,13 @@ function($scope,$filter,$http){
 		
 		}
 		*/
-		error(result.date);
+		succes($scope.result.date);
 		var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
-		var resultDate = '#'+result.date;
+		var resultDate = '#'+$scope.result.date;
 		
 		error(selectedDate+" and "+resultDate);
-		if(result.date!=selectedDate){
-			result=null;
+		if(resultDate!=selectedDate){
+			$scope.result=null;
 		}
 						
 		
@@ -266,13 +266,13 @@ function($scope,$filter,$http){
 		// check if Object is not empty
 		//success(result.date);
 		
-		if(result!=null){
+		if($scope.result!=null){
 			// Regular mass filter
 			if($scope.apptType==REGULAR){
 				
-				for (var i=result.schedule.length-1; i>=0; i--) {
-					if(result.schedule[i].type==REGULAR){
-						$scope.massTime.timeList.push(result.schedule[i].time);
+				for (var i=$scope.result.schedule.length-1; i>=0; i--) {
+					if($scope.result.schedule[i].type==REGULAR){
+						$scope.massTime.timeList.push($scope.result.schedule[i].time);
 						$scope.massTime.toast='Select from below options:';
 						$scope.massTime.show=true;
 					}
@@ -283,9 +283,9 @@ function($scope,$filter,$http){
 			
 			else {
 				
-				for (var i=result.schedule.length-1; i>=0; i--) {
-					if(result.schedule[i].type!=REGULAR){
-						$scope.massTime.timeList.push(result.schedule[i].time);
+				for (var i=$scope.result.schedule.length-1; i>=0; i--) {
+					if($scope.result.schedule[i].type!=REGULAR){
+						$scope.massTime.timeList.push($scope.result.schedule[i].time);
 						$scope.massTime.toast='Select from below options:';
 						$scope.massTime.show=true;
 					}
@@ -331,11 +331,11 @@ function($scope,$filter,$http){
 	$scope.updateApptTime = function(){
 		//success($scope.massTime.selectedTime+" vs the "+$scope.apptTime);
 		$scope.apptTime = $scope.massTime.selectedTime;
-		if(result!=null){
+		if($scope.result!=null){
 			
-			for (var i=result.schedule.length-1; i>=0; i--) {
-				if(result.schedule[i].time==$scope.apptTime){
-					$scope.names=result.schedule[i].names;
+			for (var i=$scope.result.schedule.length-1; i>=0; i--) {
+				if($scope.result.schedule[i].time==$scope.apptTime){
+					$scope.names=$scope.result.schedule[i].names;
 				}
 			}
 			
