@@ -32,3 +32,7 @@ count()
 
 // load script
 load("srcipt.js");
+
+
+/* SCHEMA */
+
