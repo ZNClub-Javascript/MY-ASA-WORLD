@@ -241,7 +241,8 @@ function($scope,$filter,$http){
 
 				error(selectedDate+" and "+resultDate);
 				if(resultDate!=selectedDate){
-					$scope.result=null;
+					//$scope.result=null;
+					$scope.result={'date':'','schedule':[]};
 				}
 
 
@@ -249,6 +250,7 @@ function($scope,$filter,$http){
 			}
 			else if(response.data['result']=='failed'){
 				 //DO NOTHING
+				$scope.result={'date':'','schedule':[]};
 			}
 			
         	});		 
@@ -260,7 +262,7 @@ function($scope,$filter,$http){
 		// check if Object is not empty
 		//success(result.date);
 		
-		if($scope.result!=null){
+		if($scope.result.date!=''){
 			// Regular mass filter
 			if($scope.apptType==REGULAR){
 				
@@ -325,7 +327,7 @@ function($scope,$filter,$http){
 	$scope.updateApptTime = function(){
 		//success($scope.massTime.selectedTime+" vs the "+$scope.apptTime);
 		$scope.apptTime = $scope.massTime.selectedTime;
-		if($scope.result!=null){
+		if($scope.result.date!=''){
 			
 			for (var i=$scope.result.schedule.length-1; i>=0; i--) {
 				if($scope.result.schedule[i].time==$scope.apptTime){
