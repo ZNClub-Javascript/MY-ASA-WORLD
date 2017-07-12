@@ -190,6 +190,7 @@ function($scope,$filter,$http){
 		}
 		
 		result={'date':result_date,'schedule':result_schedule};
+		success(result.date);
 		return result;
 		
 	}
@@ -225,6 +226,7 @@ function($scope,$filter,$http){
 			if(response.data['result']=='success'){
 				var obj = response.data['list'];
 				result=fillResult(obj);
+				success(result.date);
 				
 				
 			}
@@ -247,6 +249,7 @@ function($scope,$filter,$http){
 		
 		}
 		*/
+		error(result.date);
 		var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
 		var resultDate = '#'+result.date;
 		
