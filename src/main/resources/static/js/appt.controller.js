@@ -161,7 +161,7 @@ function($scope,$filter,$http){
 	
 	function fillResult(obj){
 		// response list
-		var arr=obj['list'];
+		var arr=obj;
 		
 		// set date
 		result_date = arr[0]['date'];
@@ -221,7 +221,7 @@ function($scope,$filter,$http){
         then(function(response) {
             //DO NOTHING
 			if(response.data['result']=='success'){
-				var obj = response.data['object'];
+				var obj = response.data['list'];
 				result=fillResult(obj);
 				
 				
