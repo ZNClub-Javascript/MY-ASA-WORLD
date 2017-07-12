@@ -1,7 +1,7 @@
 // Appointment Controller : handles appt ops
 
 
-'use strict';
+//'use strict';
 
 app.controller('addApptCtrl',
 function($scope,$filter,$http){		
