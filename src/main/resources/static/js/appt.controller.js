@@ -160,7 +160,7 @@ function($scope,$filter,$http){
 	var getTime=[];
 	
 	$scope.selectDate=function(){
-		success($scope.apptDate);
+		//success($scope.apptDate);
 		
 		// HTTP GET time
 		
@@ -169,7 +169,7 @@ function($scope,$filter,$http){
 		
 		var day = $filter('date')($scope.apptDate,"fullDate");
 		var url = '/timelist/'+day[0]+day[1]+day[2];
-		success(url);
+		//success(url);
 		/* $http.get(url).
 		then(function(response) {
 		    //DO NOTHING
@@ -192,8 +192,7 @@ function($scope,$filter,$http){
 				var arr=obj;
 
 				// set date
-				error(arr[0]);
-				error(arr[0]['date']);
+				
 				result_date = arr[0]['date'];
 
 				// initialize
@@ -218,7 +217,7 @@ function($scope,$filter,$http){
 				}
 
 				//result={'date':result_date,'schedule':result_schedule};
-				success("before set "+$scope.result.date);
+				
 				$scope.result.date=result_date;
 				$scope.result.schedule=result_schedule;
 
@@ -237,11 +236,12 @@ function($scope,$filter,$http){
 				success("before date compare "+$scope.result.date);
 
 				var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
-				var resultDate = '#'+$scope.result.date;
+				var resultDate = $scope.result.date;
 
-				error(selectedDate+" and "+resultDate);
+				
 				if(resultDate!=selectedDate){
 					//$scope.result=null;
+					error("Not equal "+selectedDate+" and "+resultDate);
 					$scope.result={'date':'','schedule':[]};
 				}
 
@@ -260,7 +260,7 @@ function($scope,$filter,$http){
 	$scope.selectType=function(){
 		
 		// check if Object is not empty
-		//success(result.date);
+		success("Inside type check "+$scope.result.date);
 		
 		if($scope.result.date!=''){
 			// Regular mass filter
