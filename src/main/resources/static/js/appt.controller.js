@@ -159,47 +159,6 @@ function($scope,$filter,$http){
 	
 	var getTime=[];
 	
-	// comment function
-	/*function fillResult(obj,$scope){
-		// response list
-		var arr=obj;
-		
-		// set date
-		error(arr[0]);
-		error(arr[0]['date']);
-		result_date = arr[0]['date'];
-		
-		// initialize
-		result_schedule = [] ;
-		
-		
-		// iterate response list
-		for (var i=arr.length-1; i>=0; i--){
-			
-			//initialize
-			schedule = {'time':'','type':'','names':[]};
-			
-			//fill
-			schedule['time']=arr[i]['time'];
-			schedule['type']=arr[i]['type'];
-			schedule['names']=arr[i]['names'];
-			
-			//push
-			result_schedule.push(schedule);
-			
-			
-		}
-		
-		//result={'date':result_date,'schedule':result_schedule};
-		$scope.result.date=result_date;
-		$scope.result.schedule=result_schedule;
-		
-		//return result;
-		
-	}*/
-	
-	
-	
 	$scope.selectDate=function(){
 		success($scope.apptDate);
 		
@@ -212,11 +171,11 @@ function($scope,$filter,$http){
 		var url = '/timelist/'+day[0]+day[1]+day[2];
 		success(url);
 		/* $http.get(url).
-        then(function(response) {
-            //DO NOTHING
-			
-        });		 
-*/
+		then(function(response) {
+		    //DO NOTHING
+
+		});		 
+		*/
 		
 		
 		// HTTP GET APPOINTMENT on DATE
@@ -259,10 +218,31 @@ function($scope,$filter,$http){
 				}
 
 				//result={'date':result_date,'schedule':result_schedule};
+				success("before set "+$scope.result.date);
 				$scope.result.date=result_date;
 				$scope.result.schedule=result_schedule;
 
+				// store results
+				/*
+				result = {
+					'date':'30/06/17',
+					'schedule':[{'time':'07:00 AM','type':'Regular','names':['Ben','Ten','When','Hen']},
+								{'time':'06:00 AM','type':'Regular','names':['Pen','Gwen','Ren','Men']},
+								{'time':'09:00 AM','type':'Special','names':['Pen','Gwen','Ren','Men']}
+					]
 
+				}
+				*/
+
+				success("before date compare "+$scope.result.date);
+
+				var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
+				var resultDate = '#'+$scope.result.date;
+
+				error(selectedDate+" and "+resultDate);
+				if(resultDate!=selectedDate){
+					$scope.result=null;
+				}
 
 
 				
@@ -272,31 +252,6 @@ function($scope,$filter,$http){
 			}
 			
         	});		 
-//*/
-		
-		
-		// store results
-		/*
-		result = {
-			'date':'30/06/17',
-			'schedule':[{'time':'07:00 AM','type':'Regular','names':['Ben','Ten','When','Hen']},
-						{'time':'06:00 AM','type':'Regular','names':['Pen','Gwen','Ren','Men']},
-						{'time':'09:00 AM','type':'Special','names':['Pen','Gwen','Ren','Men']}
-			]
-		
-		}
-		*/
-		
-		success("before date compare "+$scope.result.date);
-		
-		var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
-		var resultDate = '#'+$scope.result.date;
-		
-		error(selectedDate+" and "+resultDate);
-		if(resultDate!=selectedDate){
-			$scope.result=null;
-		}
-						
 		
 	}
 	
