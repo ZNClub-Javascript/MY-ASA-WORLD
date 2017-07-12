@@ -30,30 +30,32 @@ public class AppointmentServiceImpl implements ConstantsInterface,AppointmentSer
     }
 	
 	public List<Appointment> getByDate(String date){
-	List<Appointment> list = new ArrayList<>();
-	List<Schedule> queried = scheduleDAO.findByDate(date);
-	queried.forEach(query->{
-		Appointment appointment = new Appointment();
-		BeanUtils.copyProperties(query,appointment);
-		list.add(appointment);
-	});
-	    
-	  return list;
+		List<Appointment> list = new ArrayList<>();
+		List<String> names=new  ArrayList<>();
+		names.add("Jerry");
+		names.add("Kenny");
+		names.add("Vella");
+		names.add("Dough");
+		
+		list.add(new Appointment(names,"30/06/17","06:00 AM","Admin","Regular"));
+		list.add(new Appointment(names,"30/06/17","07:00 AM","Admin","Regular"));
+		list.add(new Appointment(names,"30/06/17","09:00 AM","Admin","Special"));
+		return list;
     }
 
     
 	public boolean add(Appointment appointment){
-	Schedule schedule= new Schedule();
-      BeanUtils.copyProperties(appointment,schedule);
-	System.out.println(appointment.getDate()+" - "+schedule.getDate());
-     
-       if(scheduleDAO.insert(schedule)==null){
-       		System.out.println("add Appointment failed");
-        	return false;
-       }
+		Schedule schedule= new Schedule();
+		BeanUtils.copyProperties(appointment,schedule);
+		System.out.println(appointment.getDate()+" - "+schedule.getDate());
+
+	       if(scheduleDAO.insert(schedule)==null){
+			System.out.println("add Appointment failed");
+			return false;
+	       }
 		
-      //success
-      return true;
+      		//success
+      		return true;
     }
 	
 }
