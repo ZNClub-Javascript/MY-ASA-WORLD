@@ -215,7 +215,7 @@ function($scope,$filter,$http){
 		
 		// HTTP GET APPOINTMENT on DATE
 		var url_date='30/06/17';
-		url='/appointment?date='+url_date;
+		url='/appointment/by?date='+url_date;
 		
 		$http.get(url).
         then(function(response) {
