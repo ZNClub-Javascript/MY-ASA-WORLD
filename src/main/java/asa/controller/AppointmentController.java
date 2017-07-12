@@ -65,7 +65,7 @@ public class AppointmentController {
     }
 
 	@RequestMapping(value="/evaluate",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    	public @ResponseBody Map<String,String> add(@RequestBody Appointment appointment){
+    	public @ResponseBody Map<String,String> evaluate(@RequestBody Appointment appointment){
         
 		  Map<String,String> map=new HashMap<>();
 		  //if(appointmentService.add(appointment)){
