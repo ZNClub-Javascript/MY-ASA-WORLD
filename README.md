@@ -14,7 +14,9 @@ This is the official app README of the ASA app. All metadata related to project 
 
 *Stakeholders*
 ------------
-
+- Admin
+- Animator
+- Leaders Council
 
 *User Stories*
 ------------
@@ -24,10 +26,26 @@ This is the official app README of the ASA app. All metadata related to project 
 
 *Technologies*
 ------------
+- HTML5, CSS3, BOOTSTRAP4
+- JAVASCRIPT, ANGULAR 1.x, ANGULAR-MATERIAL-UI 1.x, JQUERY 3.x
+- JAVA8, SPRING-BOOT4, SPRING-MVC, SPRING-DATA-MONGODB,SPRING-REST
+- MONGODB, MONGODB-ATLAS
+- MAVEN, GIT
+- NOTEPAD++, VIM, GITHUB
+- GOOGLE APP ENGINE FLEX
 
 
 *Visualizations*
 ------------
+- TOP 5 INDIVIDUALS OF THE MONTH
+
+- GROUP RANKINGS OF THE MONTH
+
+- ALL-TIME TOP 5 INDIVIDUALS 
+
+- ALL-TIME GROUP RANKINGS
+
+
 
 
 *Tutorials*
