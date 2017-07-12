@@ -63,21 +63,6 @@ public class AppointmentController {
 		}
 		  return map;
     }
-	/*
-	@RequestMapping(value="/test",method = RequestMethod.GET)
-    public @ResponseBody Map<String,String> addTest(){
-        	System.out.println("Inside AppointmentController POST TEST");
-		  
-	    	Map<String,String> map=new HashMap<>();
-		  if(appointmentService.add(appointment)){
-      			map.put("result","success");
-		  }
-	    	else{
-			map.put("result","failed");
-		}
-		  return map;
-    }
-	*/
 	
 	
 	
