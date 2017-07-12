@@ -417,25 +417,26 @@ function($scope,$filter,$http){
 			if(response.data['result']=='success'){
 				status=true;
 			}
-		
+			
+			//true then set auth to true
+			if(status==true){		
+
+
+				//debug
+				success("appt");
+				$scope.progress='Evaluated';
+
+			}
+			else{
+				error("appt");
+				$scope.progress='Something went wrong! Please try again to Evaluate'
+			}
 		
 		});
 		
 		//*/
 		
-		//true then set auth to true
-		if(status==true){		
 		
-			
-			//debug
-			success("appt");
-			$scope.progress='Evaluated';
-			
-		}
-		else{
-			error("appt");
-			$scope.progress='Something went wrong! Please try again to Evaluate'
-		}
 	}
 	
 	$scope.reset = function(){
