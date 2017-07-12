@@ -159,7 +159,7 @@ function($scope,$filter,$http){
 	
 	var getTime=[];
 	
-	function fillResult(obj){
+	function fillResult(obj,$scope){
 		// response list
 		var arr=obj;
 		
@@ -227,7 +227,7 @@ function($scope,$filter,$http){
             //DO NOTHING
 			if(response.data['result']=='success'){
 				var obj = response.data['list'];
-				fillResult(obj);
+				fillResult(obj,$scope);
 				success($scope.result.date);
 				
 				
