@@ -249,7 +249,7 @@ function($scope,$filter,$http){
 		
 		}
 		*/
-		succes($scope.result.date);
+		success($scope.result.date);
 		var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
 		var resultDate = '#'+$scope.result.date;
 		
