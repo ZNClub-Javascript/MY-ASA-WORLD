@@ -403,7 +403,7 @@ function($scope,$filter,$http){
 		
 		
 		///*
-		$http.post('/evaluate',  
+		$http.post('/appointment/evaluate',  
 		{ 
 		'sign' : $scope.apptSign,
 		'date' : fmtDate,
