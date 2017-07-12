@@ -154,9 +154,9 @@ function($scope,$filter,$http){
 	$scope.types=['Regular','Special'];
 	$scope.names=[];
 	$scope.absent=[];
-	$scope.progress='Evaluating';
+	$scope.progress='Evaluating';	
+	$scope.result={'date':'','schedule':[]};
 	
-	$scope.result=null;
 	var getTime=[];
 	
 	function fillResult(obj){
@@ -189,9 +189,11 @@ function($scope,$filter,$http){
 			
 		}
 		
-		result={'date':result_date,'schedule':result_schedule};
+		//result={'date':result_date,'schedule':result_schedule};
+		$scope.result.date=result_date;
+		$scope.result.schedule=result_schedule;
 		
-		return result;
+		//return result;
 		
 	}
 	
@@ -225,7 +227,7 @@ function($scope,$filter,$http){
             //DO NOTHING
 			if(response.data['result']=='success'){
 				var obj = response.data['list'];
-				$scope.result=fillResult(obj);
+				fillResult(obj);
 				success($scope.result.date);
 				
 				
@@ -249,7 +251,7 @@ function($scope,$filter,$http){
 		
 		}
 		*/
-		//success($scope.result.date);
+		success("before date compare "+$scope.result.date);
 		var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
 		var resultDate = '#'+$scope.result.date;
 		
