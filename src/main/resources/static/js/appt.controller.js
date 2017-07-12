@@ -226,7 +226,7 @@ function($scope,$filter,$http){
 			if(response.data['result']=='success'){
 				var obj = response.data['list'];
 				$scope.result=fillResult(obj);
-				
+				success($scope.result.date);
 				
 				
 			}
@@ -249,7 +249,7 @@ function($scope,$filter,$http){
 		
 		}
 		*/
-		success($scope.result.date);
+		//success($scope.result.date);
 		var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
 		var resultDate = '#'+$scope.result.date;
 		
