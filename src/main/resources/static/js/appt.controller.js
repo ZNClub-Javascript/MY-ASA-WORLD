@@ -164,6 +164,8 @@ function($scope,$filter,$http){
 		var arr=obj;
 		
 		// set date
+		error(arr[0]);
+		error(arr[0]['date']);
 		result_date = arr[0]['date'];
 		
 		// initialize
