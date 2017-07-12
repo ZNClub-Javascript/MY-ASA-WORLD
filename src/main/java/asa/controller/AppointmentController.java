@@ -63,7 +63,20 @@ public class AppointmentController {
 		}
 		  return map;
     }
-	
+
+	@RequestMapping(value="/evaluate",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    	public @ResponseBody Map<String,String> add(@RequestBody Appointment appointment){
+        
+		  Map<String,String> map=new HashMap<>();
+		  //if(appointmentService.add(appointment)){
+		if(true){
+      			map.put("result","success");
+		  }
+	    	else{
+			map.put("result","failed");
+		}
+		  return map;
+    }
 	
 	
 	
