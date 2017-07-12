@@ -12,7 +12,7 @@ import java.util.*;
 
 
 @Service("appointmentService")
-public class AppointmentServiceImpl implements ConstantsInterface,AppointmentService{
+public class AppointmentServiceMock implements ConstantsInterface,AppointmentService{
 	
 	@Autowired
 	private ScheduleDAO scheduleDAO;		
