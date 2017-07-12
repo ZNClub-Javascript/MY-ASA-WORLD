@@ -402,7 +402,7 @@ function($scope,$filter,$http){
 		
 		
 		
-		/*
+		///*
 		$http.post('/evaluate',  
 		{ 
 		'sign' : $scope.apptSign,
@@ -421,7 +421,7 @@ function($scope,$filter,$http){
 		
 		});
 		
-		*/
+		//*/
 		
 		//true then set auth to true
 		if(status==true){		
