@@ -8,5 +8,5 @@ public interface AttendanceService{
 	
 	
 	public boolean add(Attendance attendance);
-	public Attendance get(group,date);
+	public Attendance get(String group,String date);
 }
