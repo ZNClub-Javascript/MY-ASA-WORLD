@@ -1,7 +1,7 @@
 // Appointment Controller : handles appt ops
 
 
-'use strict';
+//'use strict';
 
 app.controller('addApptCtrl',
 function($scope,$filter,$http){		
@@ -154,48 +154,13 @@ function($scope,$filter,$http){
 	$scope.types=['Regular','Special'];
 	$scope.names=[];
 	$scope.absent=[];
-	$scope.progress='Evaluating';
+	$scope.progress='Evaluating';	
+	$scope.result={'date':'','schedule':[]};
 	
-	var result=null;
 	var getTime=[];
 	
-	function fillResult(obj){
-		// response list
-		var arr=obj['list'];
-		
-		// set date
-		result_date = arr[0]['date'];
-		
-		// initialize
-		result_schedule = [] ;
-		
-		
-		// iterate response list
-		for (var i=arr.length-1; i>=0; i--){
-			
-			//initialize
-			schedule = {'time':'','type':'','names':[]};
-			
-			//fill
-			schedule['time']=arr[i]['time'];
-			schedule['type']=arr[i]['type'];
-			schedule['names']=arr[i]['names'];
-			
-			//push
-			result_schedule.push(schedule);
-			
-			
-		}
-		
-		result={'date':result_date,'schedule':result_schedule};
-		return result;
-		
-	}
-	
-	
-	
 	$scope.selectDate=function(){
-		success($scope.apptDate);
+		//success($scope.apptDate);
 		
 		// HTTP GET time
 		
@@ -204,70 +169,106 @@ function($scope,$filter,$http){
 		
 		var day = $filter('date')($scope.apptDate,"fullDate");
 		var url = '/timelist/'+day[0]+day[1]+day[2];
-		success(url);
+		//success(url);
 		/* $http.get(url).
-        then(function(response) {
-            //DO NOTHING
-			
-        });		 
-*/
+		then(function(response) {
+		    //DO NOTHING
+
+		});		 
+		*/
 		
 		
 		// HTTP GET APPOINTMENT on DATE
 		var url_date='30/06/17';
-		url='/appointment?date='+url_date;
+		url='/appointment/by?date='+url_date;
 		
 		$http.get(url).
-        then(function(response) {
-            //DO NOTHING
+        	then(function(response) {
+            		
 			if(response.data['result']=='success'){
-				var obj = response.data['object'];
-				result=fillResult(obj);
+				var obj = response.data['list'];
 				
+				// response list
+				var arr=obj;
+
+				// set date
+				
+				result_date = arr[0]['date'];
+
+				// initialize
+				result_schedule = [] ;
+
+
+				// iterate response list
+				for (var i=arr.length-1; i>=0; i--){
+
+					//initialize
+					schedule = {'time':'','type':'','names':[]};
+
+					//fill
+					schedule['time']=arr[i]['time'];
+					schedule['type']=arr[i]['type'];
+					schedule['names']=arr[i]['names'];
+
+					//push
+					result_schedule.push(schedule);
+
+
+				}
+
+				//result={'date':result_date,'schedule':result_schedule};
+				
+				$scope.result.date=result_date;
+				$scope.result.schedule=result_schedule;
+
+				// store results
+				/*
+				result = {
+					'date':'30/06/17',
+					'schedule':[{'time':'07:00 AM','type':'Regular','names':['Ben','Ten','When','Hen']},
+								{'time':'06:00 AM','type':'Regular','names':['Pen','Gwen','Ren','Men']},
+								{'time':'09:00 AM','type':'Special','names':['Pen','Gwen','Ren','Men']}
+					]
+
+				}
+				*/
+
+				success("before date compare "+$scope.result.date);
+
+				var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
+				var resultDate = $scope.result.date;
+
+				
+				if(resultDate!=selectedDate){
+					//$scope.result=null;
+					error("Not equal "+selectedDate+" and "+resultDate);
+					$scope.result={'date':'','schedule':[]};
+				}
+
+
 				
 			}
 			else if(response.data['result']=='failed'){
 				 //DO NOTHING
+				$scope.result={'date':'','schedule':[]};
 			}
 			
-        });		 
-//*/
-		
-		
-		// store results
-		/*
-		result = {
-			'date':'30/06/17',
-			'schedule':[{'time':'07:00 AM','type':'Regular','names':['Ben','Ten','When','Hen']},
-						{'time':'06:00 AM','type':'Regular','names':['Pen','Gwen','Ren','Men']},
-						{'time':'09:00 AM','type':'Special','names':['Pen','Gwen','Ren','Men']}
-			]
-		
-		}
-		*/
-		var selectedDate = $filter('date')($scope.apptDate,"dd/MM/yy");
-		var resultDate = '#'+result.date;
-		
-		error(selectedDate+" and "+resultDate);
-		if(result.date!=selectedDate){
-			result=null;
-		}
-						
+        	});		 
 		
 	}
 	
 	$scope.selectType=function(){
 		
 		// check if Object is not empty
-		//success(result.date);
+		success("Inside type check "+$scope.result.date);
 		
-		if(result!=null){
+		if($scope.result.date!=''){
 			// Regular mass filter
 			if($scope.apptType==REGULAR){
 				
-				for (var i=result.schedule.length-1; i>=0; i--) {
-					if(result.schedule[i].type==REGULAR){
-						$scope.massTime.timeList.push(result.schedule[i].time);
+				for (var i=$scope.result.schedule.length-1; i>=0; i--) {
+					if($scope.result.schedule[i].type==REGULAR){
+						$scope.massTime.timeList.push($scope.result.schedule[i].time);
 						$scope.massTime.toast='Select from below options:';
 						$scope.massTime.show=true;
 					}
@@ -278,9 +279,9 @@ function($scope,$filter,$http){
 			
 			else {
 				
-				for (var i=result.schedule.length-1; i>=0; i--) {
-					if(result.schedule[i].type!=REGULAR){
-						$scope.massTime.timeList.push(result.schedule[i].time);
+				for (var i=$scope.result.schedule.length-1; i>=0; i--) {
+					if($scope.result.schedule[i].type!=REGULAR){
+						$scope.massTime.timeList.push($scope.result.schedule[i].time);
 						$scope.massTime.toast='Select from below options:';
 						$scope.massTime.show=true;
 					}
@@ -326,11 +327,11 @@ function($scope,$filter,$http){
 	$scope.updateApptTime = function(){
 		//success($scope.massTime.selectedTime+" vs the "+$scope.apptTime);
 		$scope.apptTime = $scope.massTime.selectedTime;
-		if(result!=null){
+		if($scope.result.date!=''){
 			
-			for (var i=result.schedule.length-1; i>=0; i--) {
-				if(result.schedule[i].time==$scope.apptTime){
-					$scope.names=result.schedule[i].names;
+			for (var i=$scope.result.schedule.length-1; i>=0; i--) {
+				if($scope.result.schedule[i].time==$scope.apptTime){
+					$scope.names=$scope.result.schedule[i].names;
 				}
 			}
 			
@@ -401,8 +402,8 @@ function($scope,$filter,$http){
 		
 		
 		
-		/*
-		$http.post('/evaluate',  
+		///*
+		$http.post('/appointment/evaluate',  
 		{ 
 		'sign' : $scope.apptSign,
 		'date' : fmtDate,
@@ -416,25 +417,26 @@ function($scope,$filter,$http){
 			if(response.data['result']=='success'){
 				status=true;
 			}
-		
+			
+			//true then set auth to true
+			if(status==true){		
+
+
+				//debug
+				success("appt");
+				$scope.progress='Evaluated';
+
+			}
+			else{
+				error("appt");
+				$scope.progress='Something went wrong! Please try again to Evaluate'
+			}
 		
 		});
 		
-		*/
+		//*/
 		
-		//true then set auth to true
-		if(status==true){		
 		
-			
-			//debug
-			success("appt");
-			$scope.progress='Evaluated';
-			
-		}
-		else{
-			error("appt");
-			$scope.progress='Something went wrong! Please try again to Evaluate'
-		}
 	}
 	
 	$scope.reset = function(){

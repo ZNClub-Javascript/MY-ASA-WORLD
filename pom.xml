@@ -5,7 +5,7 @@
 
     <groupId>asa</groupId>
     <artifactId>my-asa-app</artifactId>
-    <version>0.2.3</version>
+    <version>0.2.5</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
