@@ -1,4 +1,4 @@
-package asa;
+package asa.bean;
 
 import java.util.HashMap;
 import java.util.Map;
