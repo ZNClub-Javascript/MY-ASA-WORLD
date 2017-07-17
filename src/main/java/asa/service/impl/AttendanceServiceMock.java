@@ -25,12 +25,12 @@ public class AttendanceServiceMock implements ConstantsInterface,AttendanceServi
 		
 		Map<String,Boolean> members= new HashMap<>();
 		
-		members.put('Ker',true);
-		members.put('Ver',true);
-		members.put('Ber',true);
+		members.put('Ker',Boolean.TRUE);
+		members.put('Ver',Boolean.TRUE);
+		members.put('Ber',Boolean.FALSE);
 		
-		return new Attendance("1","30/06/17",members));
+		return new Attendance("1","30/06/17",members);
 		
-    }
+    
 	}
 }
