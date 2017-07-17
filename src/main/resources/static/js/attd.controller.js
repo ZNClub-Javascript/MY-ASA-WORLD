@@ -100,7 +100,7 @@ function($scope,$filter,$http){
 		}
 
 		// check map
-		success("map is :"membersMap[1]);
+		success("map is :"+membersMap[1]);
 		
 
 		// POST attendance Object
