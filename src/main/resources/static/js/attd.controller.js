@@ -95,12 +95,12 @@ function($scope,$filter,$http){
 			{key:value}
 			);
 
-			success(" "+key+" has "+membersMap[key]);
+			success(" "+key+" has "+membersMap[i].key);
 
 		}
 
 		// check map
-		success("map is :"+membersMap[1]);
+		
 		
 
 		// POST attendance Object
@@ -111,10 +111,15 @@ function($scope,$filter,$http){
 		'members' : membersMap
 		}).
 		then(function(response,status){
-			success("POST success");			
+			if(response.data['result']=='success'){
+				success("POST success");		
+			}
+			else{
+				error();
+			}
 		});
 		
-		error("ended");
+		
 	}
 	
 	
