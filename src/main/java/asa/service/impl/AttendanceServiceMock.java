@@ -21,14 +21,16 @@ public class AttendanceServiceMock implements ConstantsInterface,AttendanceServi
  
 	}
 	
-	public List<Attendance> get(String group,String date){
-		List<Appointment> list = new ArrayList<>();
+	public Attendance get(String group,String date){
 		
+		Map<String,Boolean> members= new HashMap<>();
 		
-		list.add(new Appointment(names,"30/06/17","06:00 AM","Admin","Regular"));
-		list.add(new Appointment(names,"30/06/17","07:00 AM","Admin","Regular"));
-		list.add(new Appointment(names,"30/06/17","09:00 AM","Admin","Special"));
-		return list;
+		members.put('Ker',true);
+		members.put('Ver',true);
+		members.put('Ber',true);
+		
+		return new Attendance("1","30/06/17",members));
+		
     }
 	}
 }
