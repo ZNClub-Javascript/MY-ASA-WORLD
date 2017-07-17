@@ -29,8 +29,8 @@ public class AttendanceServiceMock implements ConstantsInterface,AttendanceServi
 		members.put('Ver',Boolean.TRUE);
 		members.put('Ber',Boolean.FALSE);
 		
-		return new Attendance("1","30/06/17",members));
+		return new Attendance("1","30/06/17",members);
 		
-    }
+    
 	}
 }
