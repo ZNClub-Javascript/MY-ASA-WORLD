@@ -35,7 +35,7 @@ public class AttendanceController {
 								   @RequestParam("group") String group){
 		Map<String,Object> map=new HashMap<>();
 		System.out.println("Inside AttendanceController");
-		List<Attendance> list= appointmentService.getByDate(date,group);
+		List<Attendance> list= appointmentService.get(date,group);
 		System.out.println("Length :"+list.size());
 		
 		if(list.size()!=0){
