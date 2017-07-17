@@ -35,12 +35,12 @@ public class AttendanceController {
 								   @RequestParam("date") String date){
 		Map<String,Object> map=new HashMap<>();
 		System.out.println("Inside AttendanceController");
-		List<Attendance> list= appointmentService.get(group,date);
-		System.out.println("Length :"+list.size());
+		Attendance attendance = appointmentService.get(group,date);
 		
-		if(list.size()!=0){
+		
+		if(attendance!=null){
 			map.put("result",new String("success"));
-			map.put("list",list);
+			map.put("object",attendance);
 		}
 		else{
 			map.put("result",new String("failed"));
