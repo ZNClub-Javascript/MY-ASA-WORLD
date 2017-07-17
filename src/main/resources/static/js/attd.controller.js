@@ -19,7 +19,7 @@ function($scope,$filter,$http){
 	
 	$scope.addAttdFor=function(number){
 						
-		var fmtDate=$filter('date')(new Date(),"dd/MM/yy");	
+		var fmtDate=$filter('date')($scope.attendance.date,"dd/MM/yy");	
 		
 		
 		// GET names from group
@@ -29,15 +29,15 @@ function($scope,$filter,$http){
 		then(function(response) {
 		    //DO
 			$scope.attendance.group=response.data['object']['group'];
-			$scope.attendance.date=response.data['object']['date'];
+			//$scope.attendance.date=response.data['object']['date'];
 			//$scope.attendance.members=response.data['object']['members'];
 			var dict=response.data['object']['members'];
 			for(var key in dict){
-				
+//				success(key+" -> "+dict[key]);
 				$scope.attendance.members.push({'name':key,'present':dict[key]});
 			}
 			
-			success($scope.attendance.members[1].name+" has "+$scope.attendance.members[1].present);
+		//	success($scope.attendance.members[1].name+" has "+$scope.attendance.members[1].present);
 
 		});	
 		

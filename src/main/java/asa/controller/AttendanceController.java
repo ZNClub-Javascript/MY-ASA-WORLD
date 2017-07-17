@@ -1,5 +1,6 @@
 package asa.controller;
 
+
 import asa.bean.Attendance;
 import asa.service.AttendanceService;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class AttendanceController {
 								   @RequestParam("date") String date){
 		Map<String,Object> map=new HashMap<>();
 		System.out.println("Inside AttendanceController");
-		Attendance attendance = appointmentService.get(group,date);
+		Attendance attendance = attendanceService.get(group,date);
 		
 		
 		if(attendance!=null){
