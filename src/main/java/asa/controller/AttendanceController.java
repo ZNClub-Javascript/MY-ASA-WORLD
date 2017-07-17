@@ -31,11 +31,11 @@ public class AttendanceController {
 	
 	
 	@RequestMapping(value="/by",method = RequestMethod.GET)
-	public @ResponseBody Map<String,Object> viewByGroupAndDate(@RequestParam("date") String date,
-								   @RequestParam("group") String group){
+	public @ResponseBody Map<String,Object> viewByGroupAndDate(@RequestParam("group") String group,
+								   @RequestParam("date") String date){
 		Map<String,Object> map=new HashMap<>();
 		System.out.println("Inside AttendanceController");
-		List<Attendance> list= appointmentService.get(date,group);
+		List<Attendance> list= appointmentService.get(group,date);
 		System.out.println("Length :"+list.size());
 		
 		if(list.size()!=0){
