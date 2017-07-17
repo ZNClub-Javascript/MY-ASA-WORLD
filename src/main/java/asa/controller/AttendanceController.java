@@ -29,5 +29,25 @@ public class AttendanceController {
 		  return map;
     }
 	
+	
+	@RequestMapping(value="/by",method = RequestMethod.GET)
+	public @ResponseBody Map<String,Object> viewByGroupAndDate(@RequestParam("date") String date,
+								   @RequestParam("group") String group){
+		Map<String,Object> map=new HashMap<>();
+		System.out.println("Inside AttendanceController");
+		List<Attendance> list= appointmentService.getByDate(date,group);
+		System.out.println("Length :"+list.size());
+		
+		if(list.size()!=0){
+			map.put("result",new String("success"));
+			map.put("list",list);
+		}
+		else{
+			map.put("result",new String("failed"));
+		}
+			
+		return map;
+	}
+	
 
 }
