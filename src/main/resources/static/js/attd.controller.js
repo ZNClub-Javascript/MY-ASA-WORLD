@@ -81,9 +81,40 @@ function($scope,$filter,$http){
 	
 	$scope.addAttendance = function(){
 		
-		// POST attendance Object
+		var membersMap=[];
 		
-		success("POST success");
+		console.log($scope.attendance.members.length);
+		
+		// generate map
+		for(var i=0; i< $scope.attendance.members.length ;i++){
+			
+			var key=$scope.attendance.members[i].name;
+			var value=$scope.attendance.members[i].present;
+
+			membersMap.push(
+			{key:value}
+			);
+
+			success(" "+key+" has "+membersMap[key]);
+
+		}
+
+		// check map
+		success("map is :"membersMap[1]);
+		
+
+		// POST attendance Object
+		$http.post('/appointment/evaluate',  
+		{ 
+		'group' : $scope.attendance.group,
+		'date' : $scope.attendance.date,		
+		'members' : membersMap
+		}).
+		then(function(response,status){
+			success("POST success");			
+		});
+		
+		error("ended");
 	}
 	
 	
