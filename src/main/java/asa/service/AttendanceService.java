@@ -8,5 +8,5 @@ public interface AttendanceService{
 	
 	
 	public boolean add(Attendance attendance);
-	
+	public List<Attendance> get(group,date);
 }
