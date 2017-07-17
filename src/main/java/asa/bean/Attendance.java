@@ -38,8 +38,8 @@ public class Attendance {
   }
 
   
-  public void setMembers(String name, Boolean value) {
-  this.members.put(name, value);
+  public void setMembers(Map<String, Boolean> members) {
+    this.members=members;
   }
 
 }
