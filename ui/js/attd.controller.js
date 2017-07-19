@@ -25,8 +25,8 @@ function($scope,$filter,$http){
 		
 		$scope.attendance.number=number.toString();
 		
-		var fmtDate=$filter('date')(new Date(),"dd/MM/yy");	
-		$scope.attendance.date=fmtDate.toString();
+		//var fmtDate=$filter('date')(new Date(),"dd/MM/yy");	
+		//$scope.attendance.date=fmtDate.toString();
 		
 		// ITERATE to INSERT Object into attendance.members
 		
@@ -74,6 +74,7 @@ function($scope,$filter,$http){
 					success($scope.attendance.members[i].present);
 				}
 				
+				break;
 			}
 		}				
 	}
@@ -98,24 +99,23 @@ function($scope,$filter,$http){
 	
 	$scope.attendance={
 		
-		'number':'',		
+		'number':'',
+		'date':'',
 		'members':[]
-		
 	}
 	
 	$scope.viewAttdFor=function(number){
-		$scope.total=6;
-		success(number);
+		
+		//success(number);
 		
 		$scope.attendance.number=number.toString();
 		
 		$scope.attendance.members=[
-		{'name':'Ker','score':90},
-		{'name':'Ver','score':80},
-		{'name':'Ber','score':40}
+		{'name':'Ker','present':false},
+		{'name':'Ver','present':true},
+		{'name':'Ber','present':true}
 		
 		];
-				
 		
 		
 		

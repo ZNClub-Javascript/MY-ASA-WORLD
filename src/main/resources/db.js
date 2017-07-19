@@ -18,6 +18,9 @@ db.test.insert(
 {'name':'ADMIN','stress':'high'}
 )
 
+// drop table
+db.member.drop()
+
 // check result of operation OR show collection
 db.test.find().pretty()
 
@@ -26,3 +29,13 @@ db.member.find({"name": /.*search_query.*/search_options})
 
 // count 
 count()
+
+// load script
+load("srcipt.js");
+
+
+/* SCHEMA */
+user{id,username,password,role}
+member{id,gender,dob'yyyy-mm-dd',contact,addr,name,role,group,school}
+schedule{id,class,names[],date'dd/mm/yy',time'hh:mm am',type,sign}
+

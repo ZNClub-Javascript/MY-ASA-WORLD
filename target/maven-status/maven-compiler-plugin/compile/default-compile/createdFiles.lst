@@ -1,6 +1,7 @@
 asa/model/Member.class
 asa/model/Test.class
 asa/model/User.class
+asa/controller/AttendanceController.class
 asa/bean/Appointment.class
 asa/dao/TestDAO.class
 asa/bean/Login.class
@@ -11,9 +12,13 @@ asa/service/impl/AppointmentServiceImpl.class
 asa/dao/UserDAO.class
 asa/controller/NavigationController.class
 asa/dao/ScheduleDAO.class
+asa/service/impl/AppointmentServiceMock.class
 asa/model/Schedule.class
+asa/service/AttendanceService.class
 asa/service/LoginService.class
 asa/controller/LoginController.class
 asa/dao/MemberDAO.class
+asa/service/impl/AttendanceServiceMock.class
 asa/service/AppointmentService.class
 asa/service/ConstantsInterface.class
+asa/bean/Attendance.class

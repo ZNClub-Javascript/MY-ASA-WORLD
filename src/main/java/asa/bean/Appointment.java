@@ -17,7 +17,15 @@ private String type;
 
 public Appointment() {
 }
-
+  
+public Appointment(List<String> names, String date, String time, String sign, String type) {
+  this.names=names;
+  this.date=date;
+  this.time=time;
+  this.sign=sign;
+  this.type=type;
+}
+  
 public List<String> getNames() {
 return names;
 }
